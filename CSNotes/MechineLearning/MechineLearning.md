@@ -300,3 +300,4 @@ Diagonal Matrix
 ```
 ![hist(W)绘制的直方图(左) hist(W,50)绘制的直方图(右)](image/hist_w.png)
 #### 6.2 移动数据
+
