@@ -193,6 +193,7 @@
       	url = git@github.com:{个人空间地址名称}/{项目名称}.git
       	url = git@gitee.com:{个人空间地址名称}/{项目名称}.git
       	fetch = +refs/heads/*:refs/remotes/GitHub/*
+      	puttykeyfile = C:\\Users\\xxx\\.ssh\\github_gitee_private_tortoisegitppk
       [branch "main"]
       	remote = main
       	merge = refs/heads/main
