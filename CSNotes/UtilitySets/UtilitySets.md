@@ -1,0 +1,13 @@
+## 实用工具类
+---
+### 1 百度网盘
+#### 1.1 百度网盘网页观看视频倍速
+- 浏览器F12进入开发者模式选择`Console`输入以下代码即可实现加速；
+  - 百度网盘视频1.5倍速播放核心代码;
+    ```JS
+    videojs.getPlayers("video-player").html5player.tech_.setPlaybackRate(1.5)
+    ```
+  - 百度网盘视频任意倍率播放设置；
+    ```JS
+    videojs.getPlayers("video-player").html5player.tech_.setPlaybackRate(任意倍率)
+    ```
