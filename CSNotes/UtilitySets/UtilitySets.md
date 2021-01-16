@@ -271,3 +271,28 @@
     ```JS
     videojs.getPlayers("video-player").html5player.tech_.setPlaybackRate(任意倍率)
     ```
+## 3 Python小工具
+### 3.1 批量重命名文件
+```Python
+import os
+
+# 指示要批量重命名的地址
+filePath = "E:\\test"
+# 定义计数器并设定初值1
+count = 1
+# os.listdir(filePath)获取目标录下文件集合
+for file in os.listdir(filePath):
+    fileName = os.path.splitext(file)[0]  # 获取文件名称
+    fileType = os.path.splitext(file)[1]  # 获取文件后缀名称
+    if fileType != ".ini":  # 有时候图片文件夹下会有一个ini文件，得把这个排除掉
+        # 合成形如00001.bmp这样的名称
+        changeFile = "{0:0>5}".format(count) + fileType
+        # 重命名文件
+        os.rename(os.path.join(filePath, file), os.path.join(filePath, changeFile))
+        # 边重命名边计数输出指示
+        print("{0:>5}  ".format(count), end="")
+        print(changeFile)
+        # 计数器加一
+        count += 1
+
+```

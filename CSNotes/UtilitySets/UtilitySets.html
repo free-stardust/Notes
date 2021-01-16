@@ -554,7 +554,32 @@ file_c<span class="token punctuation">.</span>txt
 </ul>
 </li>
 </ul>
+<h2 class="mume-header" id="3-python%E5%B0%8F%E5%B7%A5%E5%85%B7">3 Python&#x5C0F;&#x5DE5;&#x5177;</h2>
 
+<h3 class="mume-header" id="31-%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6">3.1 &#x6279;&#x91CF;&#x91CD;&#x547D;&#x540D;&#x6587;&#x4EF6;</h3>
+
+<pre data-role="codeBlock" data-info="Python" class="language-python"><span class="token keyword">import</span> os
+
+<span class="token comment"># &#x6307;&#x793A;&#x8981;&#x6279;&#x91CF;&#x91CD;&#x547D;&#x540D;&#x7684;&#x5730;&#x5740;</span>
+filePath <span class="token operator">=</span> <span class="token string">&quot;E:\\test&quot;</span>
+<span class="token comment"># &#x5B9A;&#x4E49;&#x8BA1;&#x6570;&#x5668;&#x5E76;&#x8BBE;&#x5B9A;&#x521D;&#x503C;1</span>
+count <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token comment"># os.listdir(filePath)&#x83B7;&#x53D6;&#x76EE;&#x6807;&#x5F55;&#x4E0B;&#x6587;&#x4EF6;&#x96C6;&#x5408;</span>
+<span class="token keyword">for</span> <span class="token builtin">file</span> <span class="token keyword">in</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fileName <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment"># &#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x540D;&#x79F0;</span>
+    fileType <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>  <span class="token comment"># &#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x540E;&#x7F00;&#x540D;&#x79F0;</span>
+    <span class="token keyword">if</span> fileType <span class="token operator">!=</span> <span class="token string">&quot;.ini&quot;</span><span class="token punctuation">:</span>  <span class="token comment"># &#x6709;&#x65F6;&#x5019;&#x56FE;&#x7247;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;ini&#x6587;&#x4EF6;&#xFF0C;&#x5F97;&#x628A;&#x8FD9;&#x4E2A;&#x6392;&#x9664;&#x6389;</span>
+        <span class="token comment"># &#x5408;&#x6210;&#x5F62;&#x5982;00001.bmp&#x8FD9;&#x6837;&#x7684;&#x540D;&#x79F0;</span>
+        changeFile <span class="token operator">=</span> <span class="token string">&quot;{0:0&gt;5}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span> <span class="token operator">+</span> fileType
+        <span class="token comment"># &#x91CD;&#x547D;&#x540D;&#x6587;&#x4EF6;</span>
+        os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">,</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> changeFile<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment"># &#x8FB9;&#x91CD;&#x547D;&#x540D;&#x8FB9;&#x8BA1;&#x6570;&#x8F93;&#x51FA;&#x6307;&#x793A;</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;{0:&gt;5}  &quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>changeFile<span class="token punctuation">)</span>
+        <span class="token comment"># &#x8BA1;&#x6570;&#x5668;&#x52A0;&#x4E00;</span>
+        count <span class="token operator">+=</span> <span class="token number">1</span>
+
+</pre>
       </div>
       
       
