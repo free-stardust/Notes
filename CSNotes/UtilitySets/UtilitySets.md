@@ -224,8 +224,8 @@
           ren |fileb |fileb_2 |txt  |ren fileb.txt fileb_2.txt
           ren |filec |filec_3 |txt  |ren filec.txt filec_3.txt
 
-          // 则拼接后得第五列内容即为待执行命令，将这一列复制到脚本或者当前目录
-          // 的命令提示符窗口即可实现文件批量重命名。
+          // 则拼接后的第五列内容即为待执行命令，将这一列复制到bat脚本或
+          // 者当前目录的命令提示符窗口即可实现文件批量重命名。
           ```
 - 和重命名有关的通配符和占位符说明；
   - 通配符是`*`，占位符是`？`；
@@ -289,7 +289,7 @@ for file in os.listdir(filePath):
         changeFile = "{0:0>5}".format(count) + fileType
         # 重命名文件
         os.rename(os.path.join(filePath, file), os.path.join(filePath, changeFile))
-        # 边重命名边计数输出指示
+        # 边重命名边计数提示
         print("{0:>5}  ".format(count), end="")
         print(changeFile)
         # 计数器加一

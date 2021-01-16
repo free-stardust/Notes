@@ -494,8 +494,8 @@ ren <span class="token operator">|</span>filea <span class="token operator">|</s
 ren <span class="token operator">|</span>fileb <span class="token operator">|</span>fileb_2 <span class="token operator">|</span>txt  <span class="token operator">|</span>ren fileb<span class="token punctuation">.</span>txt fileb_2<span class="token punctuation">.</span>txt
 ren <span class="token operator">|</span>filec <span class="token operator">|</span>filec_3 <span class="token operator">|</span>txt  <span class="token operator">|</span>ren filec<span class="token punctuation">.</span>txt filec_3<span class="token punctuation">.</span>txt
 
-<span class="token comment">// &#x5219;&#x62FC;&#x63A5;&#x540E;&#x5F97;&#x7B2C;&#x4E94;&#x5217;&#x5185;&#x5BB9;&#x5373;&#x4E3A;&#x5F85;&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF0C;&#x5C06;&#x8FD9;&#x4E00;&#x5217;&#x590D;&#x5236;&#x5230;&#x811A;&#x672C;&#x6216;&#x8005;&#x5F53;&#x524D;&#x76EE;&#x5F55;</span>
-<span class="token comment">// &#x7684;&#x547D;&#x4EE4;&#x63D0;&#x793A;&#x7B26;&#x7A97;&#x53E3;&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x6279;&#x91CF;&#x91CD;&#x547D;&#x540D;&#x3002;</span>
+<span class="token comment">// &#x5219;&#x62FC;&#x63A5;&#x540E;&#x7684;&#x7B2C;&#x4E94;&#x5217;&#x5185;&#x5BB9;&#x5373;&#x4E3A;&#x5F85;&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF0C;&#x5C06;&#x8FD9;&#x4E00;&#x5217;&#x590D;&#x5236;&#x5230;bat&#x811A;&#x672C;&#x6216;</span>
+<span class="token comment">// &#x8005;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x7684;&#x547D;&#x4EE4;&#x63D0;&#x793A;&#x7B26;&#x7A97;&#x53E3;&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x6279;&#x91CF;&#x91CD;&#x547D;&#x540D;&#x3002;</span>
 </pre></li>
 </ul>
 </li>
@@ -573,7 +573,7 @@ count <span class="token operator">=</span> <span class="token number">1</span>
         changeFile <span class="token operator">=</span> <span class="token string">&quot;{0:0&gt;5}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span> <span class="token operator">+</span> fileType
         <span class="token comment"># &#x91CD;&#x547D;&#x540D;&#x6587;&#x4EF6;</span>
         os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">,</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> changeFile<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token comment"># &#x8FB9;&#x91CD;&#x547D;&#x540D;&#x8FB9;&#x8BA1;&#x6570;&#x8F93;&#x51FA;&#x6307;&#x793A;</span>
+        <span class="token comment"># &#x8FB9;&#x91CD;&#x547D;&#x540D;&#x8FB9;&#x8BA1;&#x6570;&#x63D0;&#x793A;</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;{0:&gt;5}  &quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>changeFile<span class="token punctuation">)</span>
         <span class="token comment"># &#x8BA1;&#x6570;&#x5668;&#x52A0;&#x4E00;</span>
