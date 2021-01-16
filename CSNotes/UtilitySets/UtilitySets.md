@@ -96,7 +96,7 @@
     	set /a b=10000000+a
     	set file=!b:~-5!
     	echo !file!
-    	ren %%i !file!.*
+    	ren "%%i" "!file!.*"
     	set /a a+=1
     )
 
@@ -129,11 +129,11 @@
     for %%i in (*.*) do (
       set fileName=%%i
       set fileSuffix=!fileName:~-3!
-      if !fileSuffix! neq bat (
+      if !fileSuffix! neq "bat" (
       	set /a b=10000000+a
       	set file=!b:~-5!
       	echo !file!
-      	ren %%i !file!.*
+      	ren "%%i" "!file!.*"
       	set /a a+=1
       )
     )
