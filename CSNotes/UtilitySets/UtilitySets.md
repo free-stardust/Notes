@@ -214,7 +214,7 @@
           ren |fileb |txt
           ren |filec |txt
 
-          // 字符串拼接后，注意别忘了命令剑的空格
+          // 字符串拼接后，注意别忘了命令间的空格
           ren |a     |a_01    |bmp  |ren a.bmp a_01.bmp 
           ren |b     |b_02    |gif  |ren b.gif b_02.gif
           ren |c     |c_03    |jpeg |ren c.jpeg c_03.jpeg
