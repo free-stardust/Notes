@@ -400,7 +400,7 @@ rem Rename all <span class="token function">file</span>
 <span class="token keyword">for</span> %%i <span class="token keyword">in</span> <span class="token punctuation">(</span>*.*<span class="token punctuation">)</span> <span class="token keyword">do</span> <span class="token punctuation">(</span>
   <span class="token builtin class-name">set</span> <span class="token assign-left variable">fileName</span><span class="token operator">=</span>%%i
   <span class="token builtin class-name">set</span> <span class="token assign-left variable">fileSuffix</span><span class="token operator">=</span><span class="token operator">!</span>fileName:~-3<span class="token operator">!</span>
-  <span class="token keyword">if</span> <span class="token operator">!</span>fileSuffix<span class="token operator">!</span> neq <span class="token string">&quot;bat&quot;</span> <span class="token punctuation">(</span>
+  <span class="token keyword">if</span> <span class="token operator">!</span>fileSuffix<span class="token operator">!</span> neq bat <span class="token punctuation">(</span>
   	<span class="token builtin class-name">set</span> /a <span class="token assign-left variable">b</span><span class="token operator">=</span><span class="token number">10000000</span>+a
   	<span class="token builtin class-name">set</span> <span class="token assign-left variable">file</span><span class="token operator">=</span><span class="token operator">!</span>b:~-5<span class="token operator">!</span>
   	<span class="token builtin class-name">echo</span> <span class="token operator">!</span>file<span class="token operator">!</span>
