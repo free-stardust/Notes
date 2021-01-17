@@ -164,7 +164,7 @@
   - **正规方程计算参数$\theta$向量**
   $$\theta=(X^{T}X)^{-1}X^{T}y$$
   - **Octave实现正规方程的计算语句**
-    ```Matlab
+    ```matlab
     pinv (X'*X)*X'*y
     ```
   - **正规方程直接计算参数$\theta$向量**
@@ -202,7 +202,7 @@
 ### 6 Octave/Matlab 教程
 #### 6.1 基本操作
 >**说明**：Octave的语法和Matlab基本相同，此处以使用Octave操作为例。
-```Matlab
+```matlab
 octave:1>                                 % 默认的Octave命令窗口显示内容
 octave:2> PS1 >>                          % PS1指令切换Octave窗口提示符的显示内容为“>>”
 >> a = 1
@@ -294,9 +294,227 @@ Diagonal Matrix
    0   0   1   0
    0   0   0   1
 
+>> A = [1 2; 3 4; 5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> size(A)                                % 返回矩阵A的行列数
+ans =
+
+   3   2
+>> size(A,1)                              % 返回矩阵的行数
+ans = 3
+>> size(A,2)                              % 返回矩阵的列数
+ans = 2
+>> length(A)                              % 返回矩阵的最大维数
+ans = 3
+>> B = [1 2 3 4 5]
+B =
+
+   1   2   3   4   5
+
+>> length(B)
+ans = 5
+>> C = [1;2;3;4;5]
+C =
+
+   1
+   2
+   3
+   4
+   5
+
+>> length(C)
+ans = 5
 >> help eye                               % 查看eye的帮助信息
 >> help help                              % 查看帮助的使用方法
 >> help rand                              % 产看rand的帮助信息
 ```
 ![hist(W)绘制的直方图(左) hist(W,50)绘制的直方图(右)](image/hist_w.png)
 #### 6.2 移动数据
+```matlab
+>> pwd    % 显示目前所处目录
+ans = C:\Compilers\Octave
+>> cd E:\Exc\MechineLearning\course_materials\Chapter06\ex1 % 切换当前工作目录
+>> pwd
+ans = E:\Exc\MechineLearning\course_materials\Chapter06\ex1
+>>ls
+ 驱动器 E 中的卷没有标签。
+ 卷的序列号是 CC0C-73EE
+
+ E:\Exc\MechineLearning\course_materials\Chapter06\ex1 的目录
+
+[.]                      ex1data2.txt             normalEqn.m
+[..]                     ex1_multi.m              plotData.m
+computeCost.m            featureNormalize.m       submit.m
+computeCostMulti.m       gradientDescent.m        warmUpExercise.m
+ex1.m                    gradientDescentMulti.m
+ex1data1.txt             [lib]
+              13 个文件         18,682 字节
+               3 个目录 195,141,681,152 可用字节
+>> load ex1data1.txt
+>> load('ex1data2.txt')
+>> who    % 查看当前环境中有哪些变量 
+Variables visible from the current scope:
+
+A         B         C         ans       ex1data1  ex1data2
+>> whos  % 查看当前环境中的变量及其属性
+Variables visible from the current scope:
+
+variables in scope: top scope
+
+   Attr Name          Size                     Bytes  Class
+   ==== ====          ====                     =====  =====
+        A             3x2                         48  double
+        B             1x5                         40  double
+        C             5x1                         40  double
+        ans           1x53                        53  char
+        ex1data1     97x2                       1552  double
+        ex1data2     47x3                       1128  double
+
+Total is 404 elements using 2861 bytes
+
+>> size(ex1data1)
+ans =
+
+   97    2
+
+>> size(ex1data2)
+ans =
+
+   47    3
+
+>> clear ex1data2
+>> whos
+Variables visible from the current scope:
+
+variables in scope: top scope
+
+   Attr Name          Size                     Bytes  Class
+   ==== ====          ====                     =====  =====
+        A             3x2                         48  double
+        B             1x5                         40  double
+        C             5x1                         40  double
+        ans           1x2                         16  double
+        ex1data1     97x2                       1552  double
+
+Total is 212 elements using 1696 bytes
+
+>> v = ex1data1(1:10,1)   % 获取ex1data1第一列的前10个值并赋给v  
+v =
+
+   6.1101
+   5.5277
+   8.5186
+   7.0032
+   5.8598
+   8.3829
+   7.4764
+   8.5781
+   6.4862
+   5.0546
+
+>> save test.mat v;   % 将v中的的值存入二进制存储的test.mat文件中                                  
+>> clear
+>> whos
+>> load test.mat
+>> v
+v =
+
+   6.1101
+   5.5277
+   8.5186
+   7.0032
+   5.8598
+   8.3829
+   7.4764
+   8.5781
+   6.4862
+   5.0546
+
+>> save test.txt v -ascii   % 保存为ASCII编码的TXT文档
+>> A = [1 2; 3 4; 5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> A(3,2)   % 获取A中第3行第2列的元素
+ans = 6
+>> A(2,:)   % 获取A中第2行的所有元素
+ans =
+
+   3   4
+
+>> A(:,2)   % 获取A中第2列的所有元素
+ans =
+
+   2
+   4
+   6
+
+>> A([1 3],:)   % 获取A中第1行和第3行的元素
+ans =
+
+   1   2
+   5   6
+
+>> A(:,2) = [10;11;12]
+A =
+
+    1   10
+    3   11
+    5   12
+
+>> A = [A, [100;101;102]];    % 在A的右边追加一列
+>> A
+A =
+
+     1    10   100
+     3    11   101
+     5    12   102
+
+>> A(:)   % 一列显示A中所有元素
+ans =
+
+     1
+     3
+     5
+    10
+    11
+    12
+   100
+   101
+   102
+
+>> A = [1 2; 3 4; 5 6];
+>> B = [11 12; 13 14; 15 16];
+>> C = [A B]
+C =
+
+    1    2   11   12
+    3    4   13   14
+    5    6   15   16
+
+>> C = [A; B]
+C =
+
+    1    2
+    3    4
+    5    6
+   11   12
+   13   14
+   15   16
+
+>> [A,B]
+ans =
+
+    1    2   11   12
+    3    4   13   14
+    5    6   15   16
+
+```
