@@ -3175,6 +3175,15 @@ urlpatterns <span class="token operator">=</span> <span class="token punctuation
     url<span class="token punctuation">(</span><span class="token string">r&apos;^login/$&apos;</span><span class="token punctuation">,</span>LoginView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span>template_name<span class="token operator">=</span><span class="token string">&apos;users/login.html&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>name<span class="token operator">=</span><span class="token string">&apos;login&apos;</span><span class="token punctuation">)</span>
 <span class="token punctuation">]</span>
 </pre></li>
+<li>&#x6E05;&#x7406;Anconda&#x7F13;&#x5B58;<pre data-role="codeBlock" data-info="Python" class="language-python"><span class="token comment"># &#x5220;&#x9664;&#x6CA1;&#x6709;&#x7528;&#x7684;&#x5305; --packages</span>
+conda clean <span class="token operator">-</span>p      
+
+<span class="token comment"># &#x5220;&#x9664;tar&#x6253;&#x5305; --tarballs</span>
+conda clean <span class="token operator">-</span>t      
+
+<span class="token comment"># &#x5220;&#x9664;&#x6240;&#x6709;&#x7684;&#x5B89;&#x88C5;&#x5305;&#x53CA;cache(&#x7D22;&#x5F15;&#x7F13;&#x5B58;&#x3001;&#x9501;&#x5B9A;&#x6587;&#x4EF6;&#x3001;&#x672A;&#x4F7F;&#x7528;&#x8FC7;&#x7684;&#x5305;&#x548C;tar&#x5305;)</span>
+conda clean <span class="token operator">-</span>y <span class="token operator">-</span><span class="token builtin">all</span> 
+</pre></li>
 </ul>
 
       </div>

@@ -2578,3 +2578,14 @@ print(str_b)  # 输出"B loves money."
         url(r'^login/$',LoginView.as_view(template_name='users/login.html'),name='login')
     ]
     ```
+- 清理Anconda缓存
+    ```Python
+    # 删除没有用的包 --packages
+    conda clean -p      
+
+    # 删除tar打包 --tarballs
+    conda clean -t      
+
+    # 删除所有的安装包及cache(索引缓存、锁定文件、未使用过的包和tar包)
+    conda clean -y -all 
+    ```
