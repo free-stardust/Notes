@@ -83,7 +83,7 @@
     $$\theta_0,\theta_1,\ldots,\theta_n$$
 - **代价函数**
     $$J(\theta_0,\theta_1,\ldots,\theta_n)=\frac{1}{2m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^{2}$$
-    ><font size=2>**注意**：上式中的$x^{(i)}$和$y^{(i)}$表示的是第$i$个向量，每个向量含有$n$个维度。</font>
+    ><font size=2>**注意**：上式中的$x^{(i)}$和$y^{(i)}$表示的是第$i$个向量，其中每个$x^{(i)}$向量含有$n$+1个维度。</font>
 - **梯度下降算法(n≥1)**
     $$\begin{array}{l}
         Repeat\ \{\\
@@ -891,3 +891,229 @@
   c = 3
   ```
   ![矩阵可视化](image\myMagic15.png)
+#### 6.5 控制语句：for、while、if语句
+- **for循环语句**
+  ```matlab
+  >>v = zeros(10,1)
+  v =
+
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+
+  >>for i = 1:10,
+  >   v(i)=2^i;
+  > end;
+  >>v
+  v =
+
+        2
+        4
+        8
+       16
+       32
+       64
+      128
+      256
+      512
+     1024
+
+  >>for i = 1:10,
+  >   disp(i);
+  > end;
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  ```
+- **while循环语句**
+  ```matlab
+  >>v
+  v =
+  
+      100
+      100
+      100
+      100
+      100
+       64
+      128
+      256
+      512
+     1024
+  
+  >>i = 1;
+  >>while true,
+  >   v(i) = 999;
+  >   i = i +1;
+  >   if i == 6,
+  >       break;
+  >    end;
+  > end;
+  >>v
+  v =
+  
+      999
+      999
+      999
+      999
+      999
+       64
+      128
+      256
+      512
+     1024
+  ```
+- **if条件语句**
+  ```matlab
+  >>v(1)
+  ans = 999
+  >>v(1)=2;
+  >>if v(1)==1,
+  >    disp('The value is one.');
+  > elseif v(1)==2,
+  >    disp('The value is two.');
+  > else
+  >    disp('The value is not one or two.');
+  > end;
+  The value is two.
+  ```
+- **函数**
+  - 函数A
+    - 函数定义：squareThisNumber.m
+      ```matlab
+      function y = squareThisNumber(x)
+
+      y = x^2;
+      ```
+    - 函数调用
+      ```matlab
+      >>cd E:\Exc\MechineLearning\course_materials\Chapter06\ex1
+      >>pwd
+      ans = E:\Exc\MechineLearning\course_materials\Chapter06\ex1
+      >>squareThisNumber(5)
+      ans = 25
+      >>addpath('E:\Exc\MechineLearning\course_materials\Chapter06\ex1')
+      >>cd C:\
+      >>pwd
+      ans = C:\
+      >>squareThisNumber(5)
+      ans = 25
+      ```
+  - 函数B
+    - 函数定义：squareAndCubeThisNumber.m
+      ```matlab
+      function [y1,y2] = squareAndCubeThisNumber(x)
+
+      y1 = x^2;
+      y2 = x^3;
+      ```
+    - 函数调用
+      ```matlab
+      >>[a, b] = squareAndCubeNumber(5)
+      error: 'squareAndCubeNumber' undefined near line 1, column 1
+      >>[a, b] = squareAndCubeThisNumber(5);
+      >>a
+      a = 25
+      >>b
+      b = 125
+  - 函数C
+    - 函数定义：costFunctionJ.m
+      ```matlab
+      function J = costFunctionJ(X, y, theta)
+
+      % X is the "design matrix" containing out training examples.
+      % y is the class labels.
+
+      m = size(X,1);              % number of training examples
+      predictions = X * theta;    % predictions of hypothesis on all m examples
+      sqrErrors = (predictions-y) .^ 2;   % squared errors
+
+      J = 1 / (2 * m) * sum(sqrErrors);
+      ```
+    - 函数调用
+      ```matlab
+      >>X = [1 1; 1 2; 1 3]
+      X =
+    
+         1   1
+         1   2
+         1   3
+    
+      >>y = [1; 2; 3]
+      y =
+    
+         1
+         2
+         3
+    
+      >>theta=[0;1];
+      >>j = costFunctionJ(X,y,theta)
+      j = 0
+      >>theta = [0;0];
+      >>j = costFunctionJ(X,y,theta)
+      j = 2.3333
+      ```
+#### 6.6 矢量
+- **梯度下降的同步更新实现**
+$$\begin{array}{c}
+  \theta_0:=\theta_0-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{0}^{(i)}\\
+  \theta_1:=\theta_1-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{1}^{(i)}\\
+  \theta_2:=\theta_2-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{2}^{(i)}\\
+  \ldots\\
+  \theta_n:=\theta_n-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{n}^{(i)}
+\end{array}$$
+- **矢量化参数说明**
+$$\theta=
+\left[ \begin{array}{c}
+  \theta_0\\
+  \theta_1\\
+  \theta_2\\
+  \vdots\\
+  \theta_n
+\end{array} \right];\ 
+\delta=
+\left[ \begin{array}{c}
+  \delta_0\\
+  \delta_1\\
+  \delta_2\\
+  \vdots\\
+  \delta_n
+\end{array} \right]; \ 
+\delta_j=\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{j}^{(i)},\ (j=0,1,\ldots,n)$$
+- **矢量化的实现**
+$$\theta:=\theta-\alpha\delta\ \Rightarrow\ 
+\left[ \begin{array}{c}
+  \theta_0\\
+  \theta_1\\
+  \theta_2\\
+  \vdots\\
+  \theta_n
+\end{array} \right]:=
+\left[ \begin{array}{c}
+  \theta_0\\
+  \theta_1\\
+  \theta_2\\
+  \vdots\\
+  \theta_n
+\end{array} \right]-\alpha
+\left[ \begin{array}{c}
+  \delta_0\\
+  \delta_1\\
+  \delta_2\\
+  \vdots\\
+  \delta_n
+\end{array} \right]$$
