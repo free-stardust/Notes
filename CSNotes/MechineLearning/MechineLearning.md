@@ -1117,4 +1117,4 @@ $$\theta:=\theta-\alpha\delta\ \Rightarrow\
   \vdots\\
   \delta_n
 \end{array} \right]$$
-### Logistic 回归
+### 7 Logistic 回归
