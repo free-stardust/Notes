@@ -32,13 +32,13 @@
 - **代价函数**
     $$J(\theta_0,\theta_1)=\frac{1}{2m}\sum\limits_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^{2}$$
 - **目标**
-    $$\underset{\theta_0,\theta_1}{minimize}\ J(\theta_0,\theta_1)$$
+    $$\underset{\theta_0,\theta_1}\text{minimize}\ J(\theta_0,\theta_1)$$
     ><font size=2>**说明**：此处之所以是$\frac{1}{2m}$，原因是在按梯度下降法求最小值点时刚好可以把平方的2约掉，从而变为$\frac{1}{m}$，且不论是$\frac{1}{m}$，还是$\frac{1}{2m}$，最后计算得出的$\theta_0$、$\theta_1$都是一样的。</font>
 #### 2.2 梯度下降法
 - **算法描述**
     $$\begin{array}{lc} 
-        repeat\ until\ convergence\ \{\\
-        \ \ \ \ \theta_j:=\theta_j-\alpha\frac{\partial}{\partial \theta_j}J(\theta_0, \theta_1)\ \ \ \ (for j=0\ and\ j = 1 \\
+        \text{repeat until convergence}\ \{\\
+        \qquad \theta_j:=\theta_j-\alpha\frac{\partial}{\partial \theta_j}J(\theta_0, \theta_1)\qquad (\text{for}\ j=0\ \text{and}\ j = 1 \\
         \}
     \end{array}$$
     > <font size=2>**说明**：此处的“:=”表示赋值运算。</font>
@@ -86,8 +86,8 @@
     ><font size=2>**注意**：上式中的$x^{(i)}$和$y^{(i)}$表示的是第$i$个向量，其中每个$x^{(i)}$向量含有$n$+1个维度。</font>
 - **梯度下降算法(n≥1)**
     $$\begin{array}{l}
-        Repeat\ \{\\
-        \ \ \ \ \theta_j:=\theta_j-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{j}^{(i)}\ \ \ (for\ j=0,1,2,\ldots,n)\\
+        \text{Repeat}\ \{\\
+        \qquad \theta_j:=\theta_j-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{j}^{(i)}\ \ \ (\text{for}\ j=0,1,2,\ldots,n)\\
         \}\\
         \ \\
         \theta_0:=\theta_0-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{0}^{(i)}\\
@@ -130,7 +130,7 @@
       \vdots\\
       x_{n}^{(i)}
   \end{array} \right]
-  \in R^{n+1}$$
+  \in \mathbb{R}^{n+1}$$
 - **构建矩阵$X$和向量$y$**
     ><font size=2>**注意**：矩阵$X$为$m\times(n+1)$的矩阵，$y$为$m$维向量。</font>
 
@@ -142,7 +142,7 @@
       \vdots\\
       (x^{(m)})^{T}
   \end{array} \right]
-  \ \ and\ \  
+  \quad \text{and} \quad  
   y=
   \left[ \begin{array}{c}
       y^{(1)}\\
@@ -1118,3 +1118,140 @@ $$\theta:=\theta-\alpha\delta\ \Rightarrow\
   \delta_n
 \end{array} \right]$$
 ### 7 Logistic 回归
+#### 7.1 分类
+- Logistic 回归处理的是预测的变量是离散的情况下的分类；
+- Logistic 回归的预测值介于0到1之间；
+#### 7.2 假设陈述
+- **Logistic 回规模型**
+$$\left. \begin{array}{r}
+  h_{\theta}(x)=\theta^{T}x\\
+  g(z)=\frac{1}{1+e^{-z}}
+\end{array}  
+\right\} \xRightarrow{z=\theta^{T}x}
+h_{\theta}(x)=\frac{1}{1+e^{-\theta^{T}x}}$$
+- **对预测值即假设输出的说明**
+  - 首先假设样本值中$y$只有0和1两个取值；
+  - $h_{\theta}(x)$表示对于输入的$x$，$y=1$的概率；
+  - 示例：
+    - 示例内容
+    $$If\ x=\left[
+    \begin{array}{c}
+      x_0 \\ x_1 
+    \end{array} \right]=\left[
+    \begin{array}{c}
+      1 \\ \text{tumorSize}
+    \end{array} \right],\ h_{\theta}(x)=0.7$$
+    - 示例说明：示例中的$h_{\theta}(x)$等于0.7表示该患者的肿瘤是一个恶性肿瘤的概率为70%；
+    - 针对此类示例，有一下拓展：
+    $$\begin{array}{l}
+        h_{\theta}(x)=P(y=1|x;\theta) \\
+        y=0\ or\ y=0 \Rightarrow \left\{
+        \begin{array}{l}
+          P(y=0|x;\theta)+P(y=1|x;\theta)=1\\
+          P(y=0|x;\theta)=1-P(y=1|x;\theta)
+        \end{array} \right.
+    \end{array}
+    $$
+#### 7.3 决策界限
+- 决策边界是根据训练集拟合$\theta$进而得出假设函数所确定的训练集分类边界；
+- 决策边界是假设函数的一个属性，不是数据集的属性；
+- 一旦假设函数有确定参数，就可完全确定决策边界，不一定需要通过绘制训练集来确定决策边界；
+#### 7.4 代价函数
+- **训练集**
+$$\{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),\ldots,(x^{(m)},y^{(m)})\}$$
+- **$m$个样本**
+$$x \in \left[
+  \begin{array}{c}
+    x_0 \\ x_1 \\ x_2 \\ \vdots \\ x_n
+  \end{array} \right]
+  \in \mathbb{R}^{n+1};\ 
+  x_0=1,\ y \in \{ 0,1 \}$$
+- **假设函数**
+$$h_\theta(x)=\frac{1}{1+e^{-\theta^{T}x}}$$
+- **Logistic 回归代价函数**
+  >**<font size=2>说明</font>**：<font size=2>在Octave中，计算自然对数为log()函数。</font>
+
+$$\begin{array}{l}
+  J(\theta)=\frac{1}{m}\sum\limits_{i=1}^{m}Cost(h_\theta(x^{(i)}),y^{(i)})\\
+  Cost(h_\theta(x),y)=\left\{ 
+    \begin{array}{r}
+      -\ln(h_\theta(x)) & if\ y=1\\
+      -\ln(1-h_\theta(x)) & if\ y=0
+    \end{array}\right.\\
+    \text{Note:\ y=0\ or\ 1\ always.} 
+\end{array}$$
+- **简化代价函数和梯度下降**
+  - 简化代价函数：该代价函数的采用极大似然估计得到；
+  $$Cost(h_\theta(x),y)=-y\ln(h_\theta(x))-(1-y)\ln(1-h_\theta(x))$$
+  - 梯度下降
+  $$\begin{array}{l}
+    \textsf{Gradient Descent:}\\
+    \qquad J(\theta)=-\frac{1}{m}\sum\limits_{i=1}^{m}[y^{(i)}\ln(h_\theta(x^{(i)}))+(1-y^{(i)})\ln(1-h_\theta(x^{(i)}))]\\ \\
+    \textsf{Want}\ \text{min}_\theta\ J(\theta):\\
+    \quad\text{Repeat}\ \{ \\
+    \qquad \quad \theta_j:=\theta_j-\alpha\frac{\partial}{\partial{\theta_j}}J(\theta)\quad (\text{simultaneously update all}\  \theta_j) \\ 
+    \quad \}\\ \\
+    \textsf{Besides:}\\
+    \qquad \frac{\partial}{\partial{\theta_j}}J(\theta)=\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{j}^{(i)}
+  \end{array}$$
+#### 7.5 高级优化
+- **给定$\theta$，需要编程计算以下两项**
+  - $J(\theta)$
+  - $\frac{\partial}{\partial{\theta_j}}J(\theta)\quad (\text{for}\ j=0,1,\ldots,n)$
+- **优化算法**
+  - Gradient descent (梯度下降)
+  - Conjugate gradient (共轭梯度)
+  - BFGS
+  - L-BFGS
+- **Conjugate gradient、BFGS、L-BFGS算法的优缺点**
+  - 优点
+    - 不需要计算学习率$\alpha$;
+    - 通常比梯度下降快；
+  - 缺点
+    - 相比梯度下降更复杂；
+- **示例代码**
+  - 示例
+    $$\begin{array}{l}
+      \theta=\left[ \begin{array}{c}
+        \theta_1 \\ \theta_2
+      \end{array} \right] \\
+      J(\theta)=(\theta_1-5)^{2}+(\theta_2)^{2} \\
+      \frac{\partial}{\partial{\theta_1}}J(\theta)=2(\theta_1-5)\\
+      \frac{\partial}{\partial{\theta_2}}J(\theta)=2(\theta_2-5)
+    \end{array}$$
+  - 代码表示
+    ```matlab
+    % costFunction.m
+    function [jVal, gradient] = costFunction(theta)
+
+    jVal = (theta(1)-5)^2 + (theta(2)-5)^2;
+
+    gradient = zeros(2,1);
+    gradient(1) = 2 * (theta(1)-5);
+    gradient(2) = 2 * (theta(2)-5);
+    ```
+    ```matlab
+    % Octave窗口操作
+    % 设定操作参数和迭代次数
+    >>options = optimest('GradObj', 'on', 'MaxIter', '100');
+    >>initialTheta = zeros(2,1);
+    >>% 此处@表示指向函数costFunction
+    >>[optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);  % 此句命令运行后会产生如下格式内容
+
+    <ag] = fminunc(@costFunction, initialTheta, options)
+    optTheta = 
+
+       5.0000
+       5.0000
+
+    functionVal = 1.5777e-030   % 很小，可以认为是0
+    exitFlag = 1  % 表示收敛
+    ```
+#### 7.6 多元分类：一对多
+- **具体做法**
+  - 可以将多元分类转换为多个独立的二元分类进行；
+  - 最后类别归属为多个独立二元分类中预测值最大的一个；
+![多元分类的一对多情况](image\logistic_one-vs-all.png)
+- **实现步骤**
+  - 为每个类别$i$训练一个Logistic回归分类器$h_{\theta}^{(i)}(x)$，以预测$y=i$时的概率；
+  - 对于每一个新输入的$x$做预测，选定最大预测值$\underset{i}{\text{max}}\ h_\theta^{(i)}(x)$所属的类别$i$为$x$的归属;
