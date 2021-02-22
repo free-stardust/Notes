@@ -70,18 +70,18 @@
       git config --global user.email "xxx"  # 这里xxx输入自己的电子箱
   
 ![配置用户名和邮箱](image/Git_14.png)
-#### 2.3 生成公钥和密钥
-- 生产的公钥和秘钥一般放在用户目录的.ssh目录下；
+#### 2.3 生成公钥和私钥
+- 生产的公钥和私钥一般放在用户目录的.ssh目录下；
   
       cd ~/.ssh # 进入.ssh目录
       ls  # 查看目录下的内容
 
 - 在命令行输入下面两个命令，分别生成适用于gitee和github的公钥和私钥，成的公钥和私钥默认在用户目录下.ssh目录下,邮箱就是刚才配置的邮箱；
   
-      ssh-keygen -t rsa -C "xxxxxxx@xx.com" -f "github_rsa"  # 成   github用的私钥公钥
-      ssh-keygen -t rsa -C "xxxxxxx@xx.com" -f "gitee_rsa"  # 生码云    用的私钥公钥
+      ssh-keygen -t rsa -C "xxxxxxx@xx.com" -f "github_rsa"  # 生成github用的私钥公钥
+      ssh-keygen -t rsa -C "xxxxxxx@xx.com" -f "gitee_rsa"  # 生码云用的私钥公钥
 
-![生成公钥和秘钥](image/Git_16.png)
+![生成公钥和私钥](image/Git_16.png)
 #### 2.4 拷贝公钥
 - **方式一**：直接进入`c:\user\xxx\.shh`目录，使用Notepad++编译器打开github_rsa.pub或者gitee_rsa.pub的两个文件进行复制；
 - **Git Bash中使用Clip复制**
