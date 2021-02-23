@@ -1,4 +1,4 @@
-## 文本编辑器安装与配置
+## 文本编辑器的安装与配置
 ---
 >注意：以下内容中涉及到的所有相关文件路径以读者自己实际的安装路径为准，此处仅为示例。
 ### 1 VSCode安装与配置
@@ -11,11 +11,168 @@
 - 下载安装；
   - 下载地址[https://code.visualstudio.com/](https://code.visualstudio.com/);
   - VSCode在Windows上只有安装版，不过毕竟是微软自家的产品，倒也能理解；
-- 配置；
+- 基本配置；
   - 插件安装：`Ctrl+Shift+X`然后输入想要的插件名称检索进行安装；
-  - 汉化；VSCode目前直接安装后是英文界面，需要安装汉化插件Chinese (Simplified) Language Pack for Visual Studio Code；
+  - 汉化；VSCode目前直接安装后是英文界面，需要安装汉化插件`Chinese (Simplified) Language Pack for Visual Studio Code`；
   - 界面字体显示设置：`Ctrl+,`进入可视化设置界面，即可进行相关的显示设置；
+- Markdowm环境配置；
+  - 安装`Marodown Preview Enhanced`插件，可以预览Markdown，并且含有多种主题，也可导出html和pdf;
+    - 配置`Prince`，以导出pdf (其实导出的PDF很糟糕，所以可选可不选，个人建议还是不用配置了);
+```shell
+# 下载地址
+https://www.princexml.com/download    
+# 绿色版zip下载直接解压，配置bin目录到Path的环境变量即可
+```
+    - 显示配置(style.less)；
+```css
+/* Ctrl+Shift+P输入Customize Css，选择Markdown Preview Enhanced: Customize Css
+ * 用以下内容替换原本内容
+ * 其中涉及字体的设置按自己喜好进行替换
+ 
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css *
+.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;
+  // Preview Font Setting
+  font-family: "JetBrains Mono NL", "Noto Sans S Chinese Regular"; // Preview Improper
+  //color: black;
+  letter-spacing: 0.015in; 
+  //line-height: 0.4in;
+  //font-size: 1em;
 
+/* 以下是图片显示自定义设置 */
+.markdown-img-description{
+  text-align: center;
+  margin-top: -1em;
+  color: #666;;
+  margin-bottom: 0.5em;
+
+html body img{
+  border:2px solid #ccc;
+
+.markdown-p-center{
+  text-align: center;
+}
+/* 图片自定义设置结束 
+/* 代码块字体设置 */
+.markdown-preview code,.markdown-preview pre
+{  
+   font-family: "JetBrains Mono NL", "Noto Sans S Chinese Regular";
+
+/* 代码块字体备用设置
+.markdown-preview pre
+{
+  font-family: "JetBrains Mono NL", "Noto Sans S Chinese Regular";
+
+.markdown-preview pre>code
+{
+  font-family: "JetBrains Mono NL", "Noto Sans S Chinese Regular";
+
+.markdown-preview pre[class*="language"]
+{
+  font-family: "JetBrains Mono NL", "Noto Sans S Chinese Regular";
+}
+*/
+/* 代码块字体设置结束 */
+```
+    - 显示配置(Parser.js);
+```js
+/* 
+ * Ctrl+Shift+P，输入Extend Parser，选择Markdown Preview Enhanced: Extend Parser
+ * 注释掉默认设置并添加以下代码
+ * 图片自定义设置
+ * 脚本用法如下：
+ * 英文半角感叹号[图片注释|图片标题|图片大小](图片地址)
+ */
+const scripts = `
+<script>
+    function setCurrent(){
+        const links = document.querySelectorAll(".md-sidebar-toc a")
+        for(const link of links){
+            link.style.color="";
+        }
+        const hash = location.hash;
+        const a = document.querySelector('a[href="'+hash+'"]');
+        if(a){
+            a.style.color = "#f40";
+        }
+    }
+    setCurrent();
+    window.onhashchange = setCurrent;
+</script>
+`;
+var fs = require("fs");
+module.exports = {
+  onWillParseMarkdown: function(markdown) {
+    return new Promise((resolve, reject) => {
+      const reg = /\!\[(.*)\]\((\S+)\)/gm;
+      markdown = markdown.replace(reg, function(match, g1, g2) {
+        var width = "100%";
+        if (g1) {
+          var w = g1.split("|");
+          if (w.length > 2) {
+            width = w[2] + "px";
+            g1 = w[1];
+          } else if (w.length > 1){
+            g1 = w[1];
+          } else {
+            g1 = "";
+          }      
+        }
+        return `
+<p class="markdown-p-center">
+  <img src="${g2}" alt="${g1}" style="max-width:${width}"/>
+</p>
+<p class="markdown-img-description">
+  ${g1}
+</p>
+  `;
+      });
+      resolve(markdown);
+    });
+  },
+  onDidParseMarkdown: function(html) {
+    return new Promise((resolve, reject) => {
+      return resolve(scripts + html);
+    });
+  }
+};
+/* 图片自定义设置结束 */
+```
+    - 主题选择：笔者喜欢的是Monokai；
+  - 安装插件`Markdown All In One`，该插件提供快捷键、目录和自动预览等功能(不过自动预览很丑)；
+  - 安装数学公式插件`Markdowm+Math`，该插件提供自动Katex语法索引，补充All In One的不足；
+  - 安装插件`Markdown Shortcuts`，安装该插件后会在右键快捷方式中多一堆快捷操作，补充All In One的不足；
+  - 安装插件`Open In Typora`，该插件可以以不同主题导出pdf，且比较美观，只不过需要安装额外的Typora软件；
+    - 安装该软件后，右键快捷菜单会多一个Open In Typora的选项，不过该选项要生效，需要添加Typora安装目录到Path环境变量；
+    - Typora软件下载地址：[https://www.typora.io/](https://www.typora.io/)；
+    - Typora主题下载地址1(下载很慢)：[https://theme.typora.io/](https://theme.typora.io/)；
+    - Typora主题下载地址2(下载快，但是只有部分，在Media中)：[https://github.com/typora/typora-theme-gallery](https://github.com/typora/typora-theme-gallery)；
+    - Typera主题配置；
+```css
+/* 
+ * 添加主题路径：C:\Users\XXX\AppData\Roaming\Typora\themes
+ * 设置全局字体属性
+ * 在该路径下新建名为base.user.css的文件，并添加以下内容
+ */
+html,body {
+    font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
+    font-size: 18px;
+}
+
+code {
+    font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
+    font-size: 15px;
+}
+
+#write .CodeMirror-wrap .CodeMirror-code pre {
+    font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
+    font-size: 15px;
+}
+```
+- Leetcode刷题环境配置；
+  - 测试
 ### 2 Sublime Text安装与配置
 #### 2.1 安装与配置
 - 安装版与绿色版；
@@ -23,163 +180,143 @@
   - 解压即用，需要自己配置右键快捷菜单；
 - 内部配置；
   - 破解与激活；
-    ```shell
-    # 修改hosts文件，添加以下内容屏蔽激活验证
-    127.0.0.1 sublimetext.com
-    127.0.0.1 sublimehq.com
-    127.0.0.1 license.sublimehq.com
-    127.0.0.1 45.55.255.55
-    127.0.0.1 45.55.41.223
-    0.0.0.0 license.sublimehq.com
-    0.0.0.0 45.55.255.55
-    0.0.0.0 45.55.41.223
-
-    # 输入激活许可（注：此处许可适用Sublime Text3 Build3211）
-    ----- BEGIN LICENSE -----
-    Member J2TeaM
-    Single User License
-    EA7E-1011316
-    D7DA350E 1B8B0760 972F8B60 F3E64036
-    B9B4E234 F356F38F 0AD1E3B7 0E9C5FAD
-    FA0A2ABE 25F65BD8 D51458E5 3923CE80
-    87428428 79079A01 AA69F319 A1AF29A4
-    A684C2DC 0B1583D4 19CBD290 217618CD
-    5653E0A0 BACE3948 BB2EE45E 422D2C87
-    DD9AF44B 99C49590 D2DBDEE1 75860FD2
-    8C8BB2AD B2ECE5A4 EFC08AF2 25A9B864
-    ------ END LICENSE ------​
-
-    # 做完以上工作，如果防止其自动更新，可以关闭自动检查
-    # preferences->Setting-User
-    # 添加以下内容
-    "update_check": false,
-    ```
+```shell
+# 修改hosts文件，添加以下内容屏蔽激活验证
+127.0.0.1 sublimetext.com
+127.0.0.1 sublimehq.com
+127.0.0.1 license.sublimehq.com
+127.0.0.1 45.55.255.55
+127.0.0.1 45.55.41.223
+0.0.0.0 license.sublimehq.com
+0.0.0.0 45.55.255.55
+0.0.0.0 45.55.41.22
+# 输入激活许可（注：此处许可适用Sublime Text3 Build3211）
+----- BEGIN LICENSE -----
+Member J2TeaM
+Single User License
+EA7E-1011316
+D7DA350E 1B8B0760 972F8B60 F3E64036
+B9B4E234 F356F38F 0AD1E3B7 0E9C5FAD
+FA0A2ABE 25F65BD8 D51458E5 3923CE80
+87428428 79079A01 AA69F319 A1AF29A4
+A684C2DC 0B1583D4 19CBD290 217618CD
+5653E0A0 BACE3948 BB2EE45E 422D2C87
+DD9AF44B 99C49590 D2DBDEE1 75860FD2
+8C8BB2AD B2ECE5A4 EFC08AF2 25A9B864
+------ END LICENSE ------
+# 做完以上工作，如果防止其自动更新，可以关闭自动检查
+# preferences->Setting-User
+# 添加以下内容
+"update_check": false,
+```
   - 安装Package Control;
-    ```shell
-    # 国内未知原因在线安装Packacge Control会失败，所以采取离线安装方式
-    # Package Contro离线包下载地址
-    https://github.com/wbond/package_control
-
-    # 进入github的package_control项目后，直接下载整个项目的zip
-    # 下载的项目解压直接重命名放在Sublime Text3的根目录中Data/Packages目录下即可
-
-    # 上述操作过后Package Control依旧无法使用
-    # 原因是获取包安装清单文件channel_v3.json失败
-
-    # channel_v3.json文件源地址
-    # 这个地址时快时慢的，网好的时候可以使用该地址下载最新的channel_v3.json
-    https://packagecontrol.io/channel_v3.json
-
-    # 笔者github中channel_v3.json下载地址
-    # 该json下载时间为2021年2月23日
-    https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/assets/channel_v3.json
-
-    # 下载后将该文件放到Sublime Text3根目录的Packages文件夹中，毕竟是包清单，放在这里比较合理
-    # 修改Package Control用户设置，Preference->package setting->package control->setting
-    # 在Package Control.subime-setting--User文件中添加以下内容
-    "channels":
-	  [
-		  "C:/Apps/TextEditors/SublimeText3/Packages/channel_v3.json"
-	  ],
-
-    # 进行完上述操作，Package Control即可正常使用
-    ```
+```shell
+# 国内未知原因在线安装Packacge Control会失败，所以采取离线安装方式
+# Package Contro离线包下载地址
+https://github.com/wbond/package_contro
+# 进入github的package_control项目后，直接下载整个项目的zip
+# 下载的项目解压直接重命名放在Sublime Text3的根目录中Data/Packages目录下即
+# 上述操作过后Package Control依旧无法使用
+# 原因是获取包安装清单文件channel_v3.json失
+# channel_v3.json文件源地址
+# 这个地址时快时慢的，网好的时候可以使用该地址下载最新的channel_v3.json
+https://packagecontrol.io/channel_v3.jso
+# 笔者github中channel_v3.json下载地址
+# 该json下载时间为2021年2月23日
+https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/assets/channel_v3.jso
+# 下载后将该文件放到Sublime Text3根目录的Packages文件夹中，毕竟是包清单，放在这里比较合理
+# 修改Package Control用户设置，Preference->package setting->package control->setting
+# 在Package Control.subime-setting--User文件中添加以下内容
+"channels":
+[
+  "C:/Apps/TextEditors/SublimeText3/Packages/channel_v3.json"
+]
+# 进行完上述操作，Package Control即可正常使用
+```
   - 汉化以及其他配置
-    ```shell
-    # 汉化
-    # Ctrl+Shift+P打开命令窗口，输入Install Package
-    # 候选中会看到Package Control: Install Package选项，点击后则会跳出包安装窗口
-    # 在包安装窗口输入localizeMenu，安装该插件
-    # 安装localizedMenu后，在Preference->show language->中文，即可显示中文界面
+```shell
+# 汉化
+# Ctrl+Shift+P打开命令窗口，输入Install Package
+# 候选中会看到Package Control: Install Package选项，点击后则会跳出包安装窗口
+# 在包安装窗口输入localizeMenu，安装该插件
+# 安装localizedMenu后，在Preference->show language->中文，即可显示中文界
+# 侧边栏颜色同步
+# 安装SyncedSidebarBg，使侧边栏与编辑区主题配色一致
+# 注意，安装侧边栏背景同步插件后，当前侧边栏的配色不会同步默认的Monokai配色
+# 若要同步配色可以切换下主题，或者Ctrl+Shift+P安装Monokai Gray和Monokai Dark主题
+# 当然其他主题也可，笔者比较喜欢这个系列的主
+# 禁用和启用插件
+# 禁用插件Ctrl+Shift+P，输入Disable Package，选择Package Control: Disable Package，弹出窗口选择要禁用的即可
+# 启用插件Ctrl+Shift+P，输入Enable Package，选择Package Control: Enable Package，弹出窗口选择要启用的即
+# 移除插件
+# Ctrl+Shift+P，输入Remove Package，选择Package Control: Remove Packsge，弹出窗口选择要移除的即
+# 安装SideBarEnhancements插件
+# 该插件增强了侧边栏功能
+# Ctrl+Shift+P，输入install package，选择Package Control: Install Package，弹出窗口输入插件名称点击即可安装
+# 安装后配置，该配置适合做web开发，做各种浏览器调试，从而增加了不同浏览器打开的快捷键
+# 配置文件Preference->Package Setting->Side Bar->Key Binding-User
+# 打开后在Default(Windows).sublime-keymap文件中添加以下内容
+[
+  { "keys": ["ctrl+shift+c"], "command": "copy_path" }
+  // edge
+  { "keys": ["f1"], "command": "side_bar_files_open_with",
+      "args": {
+          "paths": [],
+          "application": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+          "extensions":".*", // 匹配任何文件类型
+      }
+  }
+  // chrome
+  { "keys": ["f2"], "command": "side_bar_files_open_with",
+      "args": {
+          "paths": [],
+          "application": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+          "extensions":".*"
+      }
+  }
+  // firefox
+  { "keys": ["f3"], "command": "side_bar_files_open_with",
+      "args": {
+          "paths": [],
+          "application": "C:/Program Files/Mozilla Firefox/firefox.exe",
+          "extensions":".*"
+      }
+   }
+  // ie
+  { "keys": ["f4"], "command": "side_bar_files_open_with",
+      "args": {
+          "paths": [],
+          "application": "C:/Program Files/Internet Explorer/iexplore.exe",
+          "extensions":".*"
+      }
+  },
 
-    # 侧边栏颜色同步
-    # 安装SyncedSidebarBg，使侧边栏与编辑区主题配色一致
-    # 注意，安装侧边栏背景同步插件后，当前侧边栏的配色不会同步默认的Monokai配色
-    # 若要同步配色可以切换下主题，或者Ctrl+Shift+P安装Monokai Gray和Monokai Dark主题
-    # 当然其他主题也可，笔者比较喜欢这个系列的主题
-
-    # 禁用和启用插件
-    # 禁用插件Ctrl+Shift+P，输入Disable Package，选择Package Control: Disable Package，弹出窗口选择要禁用的即可
-    # 启用插件Ctrl+Shift+P，输入Enable Package，选择Package Control: Enable Package，弹出窗口选择要启用的即可
-
-    # 移除插件
-    # Ctrl+Shift+P，输入Remove Package，选择Package Control: Remove Packsge，弹出窗口选择要移除的即可
-
-    # 安装SideBarEnhancements插件
-    # 该插件增强了侧边栏功能
-    # Ctrl+Shift+P，输入install package，选择Package Control: Install Package，弹出窗口输入插件名称点击即可安装
-    # 安装后配置，该配置适合做web开发，做各种浏览器调试，从而增加了不同浏览器打开的快捷键
-    # 配置文件Preference->Package Setting->Side Bar->Key Binding-User
-    # 打开后在Default(Windows).sublime-keymap文件中添加以下内容
-    [
-      { "keys": ["ctrl+shift+c"], "command": "copy_path" },
-
-      // edge
-      { "keys": ["f1"], "command": "side_bar_files_open_with",
-          "args": {
-              "paths": [],
-              "application": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
-              "extensions":".*", // 匹配任何文件类型
-          }
-      },
-
-      // chrome
-      { "keys": ["f2"], "command": "side_bar_files_open_with",
-          "args": {
-              "paths": [],
-              "application": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
-              "extensions":".*"
-          }
-      },
-
-      // firefox
-      { "keys": ["f3"], "command": "side_bar_files_open_with",
-          "args": {
-              "paths": [],
-              "application": "C:/Program Files/Mozilla Firefox/firefox.exe",
-              "extensions":".*"
-          }
-       },
-
-      // ie
-      { "keys": ["f4"], "command": "side_bar_files_open_with",
-          "args": {
-              "paths": [],
-              "application": "C:/Program Files/Internet Explorer/iexplore.exe",
-              "extensions":".*"
-          }
-      },
-    ]
-
-    # 同以上步骤安装ConvertToUTF8插件，解决中文乱码的问题
-    # 同以上步骤安装Bracket Highlighter，使括号、引号、html标签等高亮显示
-    ```
+# 同以上步骤安装ConvertToUTF8插件，解决中文乱码的问题
+# 同以上步骤安装Bracket Highlighter，使括号、引号、html标签等高亮显示
+```
   - 使用注意事项；
-    ```shell
-    # 对于Mac，笔者看到网上有人说，由于文件索引会经常卡死，并提供了解决方法，笔者也将其解决方案记录了过来
-    # Preference->Setting-User
-    # 在打开的文件中添加以下内容
-    "index_file": false,
-
-    # 在写代码的过程中，有时候由于分栏，或者现实问题，一行内容如果显示不下会自动换行，如果不希望自动换行，可以进行如下设置
-    # 同样是在Preference->Setting-User
-    "word_wrap": false,
-
-    # 对于初次启动的Sublime，字体显示和大小可能不好看而且小，所以可以进行如下设置
-    # 同样是在Preference->Setting-User
-    "font_face": "JetBrains Mono NL",
-	  "font_size": 12,
-
-    # 默认情况下Sublime的vim模式是启用状态，如果一不小心按了esc就会是文件进入Command Mode，无法进行正常编辑
-    # 这种情况下有两种处理方式
-    # 第一种处理方式：点击A键或者I键或者O键即可推出Command Mode模式
-    # 第二种处理方式：关闭vim模式，禁用Vintage插件
-    # 同样是在Preference->Setting-User
-    "ignored_packages":
-    [
-        "Vintage"
-    ]
-    ```
+```shell
+# 对于Mac，笔者看到网上有人说，由于文件索引会经常卡死，并提供了解决方法，笔者也将其解决方案记录了过来
+# Preference->Setting-User
+# 在打开的文件中添加以下内容
+"index_file": false
+# 在写代码的过程中，有时候由于分栏，或者现实问题，一行内容如果显示不下会自动换行，如果不希望自动换行，可以进行如下设置
+# 同样是在Preference->Setting-User
+"word_wrap": false
+# 对于初次启动的Sublime，字体显示和大小可能不好看而且小，所以可以进行如下设置
+# 同样是在Preference->Setting-User
+"font_face": "JetBrains Mono NL",
+"font_size": 12
+# 默认情况下Sublime的vim模式是启用状态，如果一不小心按了esc就会是文件进入Command Mode，无法进行正常编辑
+# 这种情况下有两种处理方式
+# 第一种处理方式：点击A键或者I键或者O键即可推出Command Mode模式
+# 第二种处理方式：关闭vim模式，禁用Vintage插件
+# 同样是在Preference->Setting-User
+"ignored_packages":
+[
+    "Vintage"
+]
+```
 - 右键菜单配置；
   - `Win+R`输入regedit打开注册表；
   - 定位到`HKEY_CLASSES_ROOT->*->shell`路径下；
