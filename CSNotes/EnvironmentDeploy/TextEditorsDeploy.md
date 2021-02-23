@@ -2,6 +2,19 @@
 ---
 >注意：以下内容中涉及到的所有相关文件路径以读者自己实际的安装路径为准，此处仅为示例。
 ### 1 VSCode安装与配置
+#### 1.1 说明
+- VSCode是微软提供的一个免费开源现代化轻量级跨平台编辑；
+- 由于依托微软，所以具有强大优势；
+- 虽然他很强大，但是随着一次又一次更新，插件的增多，也有了启动慢等特点；
+- 虽然目前它还有不少缺点，但是就笔者当前的使用来看，用的是最舒服的；
+#### 1.2 安装与配置
+- 下载安装；
+  - 下载地址[https://code.visualstudio.com/](https://code.visualstudio.com/);
+  - VSCode在Windows上只有安装版，不过毕竟是微软自家的产品，倒也能理解；
+- 配置；
+  - 插件安装：`Ctrl+Shift+X`然后输入想要的插件名称检索进行安装；
+  - 汉化；VSCode目前直接安装后是英文界面，需要安装汉化插件Chinese (Simplified) Language Pack for Visual Studio Code；
+  - 界面字体显示设置：`Ctrl+,`进入可视化设置界面，即可进行相关的显示设置；
 
 ### 2 Sublime Text安装与配置
 #### 2.1 安装与配置
@@ -21,7 +34,7 @@
     0.0.0.0 45.55.255.55
     0.0.0.0 45.55.41.223
 
-    # 输入激活许可（注：此处许可适用Sublime Text3）
+    # 输入激活许可（注：此处许可适用Sublime Text3 Build3211）
     ----- BEGIN LICENSE -----
     Member J2TeaM
     Single User License
