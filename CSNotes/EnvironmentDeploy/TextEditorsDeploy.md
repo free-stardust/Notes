@@ -3,32 +3,29 @@
 >注意：以下内容中涉及到的所有相关文件路径以读者自己实际的安装路径为准，此处仅为示例。
 ## 1 VSCode安装与配置
 ### 1.1 说明
-- VSCode是微软提供的一个免费开源现代化轻量级跨平台编辑；
+- `VSCode`是微软提供的一个免费开源现代化轻量级跨平台编辑器；
 - 由于依托微软，所以具有强大优势；
-- 虽然他很强大，但是随着一次又一次更新，插件的增多，也有了启动慢等特点；
+- 虽然它很强大，但是随着一次又一次更新，插件的增多，也有了启动慢等特点；
 - 虽然目前它还有不少缺点，但是就笔者当前的使用来看，用的是最舒服的；
 ### 1.2 安装与配置
 #### 1.2.1 下载安装
-  - 下载地址[https://code.visualstudio.com/](https://code.visualstudio.com/);
-  - VSCode在Windows上只有安装版，不过毕竟是微软自家的产品，倒也能理解；
+  - 官网下载地址：[点击下载](https://code.visualstudio.com/)；
+  - VSCode在Windows上只有安装版，不过毕竟是微软自家的产品，倒也无需担心；
 #### 1.2.2 基本配置
 - 插件安装：`Ctrl+Shift+X`然后输入想要的插件名称检索进行安装；
 - 汉化；VSCode目前直接安装后是英文界面，需要安装汉化插件`Chinese (Simplified) Language Pack for Visual Studio Code`；
 - 界面字体显示设置：`Ctrl+,`进入可视化设置界面，即可进行相关的显示设置；
 #### 1.2.3 Markdowm环境配置
-- 安装`Marodown Preview Enhanced`插件，可以预览Markdown，并且含有多种主题，也可导出html和pdf;
-- 配置`Prince`，以导出pdf (其实导出的PDF很糟糕，所以可选可不选，个人建议还是不用配置了，配置Typora更香);
+- 安装`Marodown Preview Enhanced`插件，可以预览Markdown，并且含有多种主题，也可导出html和pdf；
+  - 配置`Prince`，以导出pdf (其实导出的PDF很糟糕，所以可选可不选，个人建议还是不用配置了，配置Typora更香)；
+  - `Prince`官网下载地址：[点击下载](https://www.princexml.com/download)；
+  - 绿色版zip下载直接解压，配置bin目录到Path的环境变量即可；
 - 安装插件`Markdown All In One`，该插件提供快捷键、目录和自动预览等功能(不过自动预览很丑)；
 - 安装数学公式插件`Markdowm+Math`，该插件提供自动Katex语法索引，补充All In One的不足；
 - 安装插件`Markdown Shortcuts`，安装该插件后会在右键快捷方式中多一堆快捷操作，补充All In One的不足；
 - 安装插件`Open In Typora`，该插件可以以不同主题导出pdf，且比较美观，只不过需要安装额外的Typora软件；
-```shell
-# 下载地址
-https://www.princexml.com/download    
-# 绿色版zip下载直接解压，配置bin目录到Path的环境变量即可
-```
 #### 1.2.4 Markdown Preview Enhanced预览配置
-- style.less；
+- style.less
 ```css
 /* 
  * Ctrl+Shift+P输入Customize Css，选择Markdown Preview Enhanced: Customize Css
@@ -83,8 +80,24 @@ html body img{
 */
 /* 代码块字体设置结束 */
 ```
-- parser.js;
+- parser.js
 ```js
+// 默认设置
+/*
+module.exports = {
+  onWillParseMarkdown: function(markdown) {
+    return new Promise((resolve, reject)=> {
+      return resolve(markdown)
+    })
+  },
+  onDidParseMarkdown: function(html) {
+    return new Promise((resolve, reject)=> {
+      return resolve(html)
+    })
+  }
+}
+*/
+
 /* 
  * Ctrl+Shift+P，输入Extend Parser，选择Markdown Preview Enhanced: Extend Parser
  * 注释掉默认设置并添加以下代码
@@ -128,13 +141,13 @@ module.exports = {
           }      
         }
         return `
-<p class="markdown-p-center">
-  <img src="${g2}" alt="${g1}" style="max-width:${width}"/>
-</p>
-<p class="markdown-img-description">
-  ${g1}
-</p>
-  `;
+        <p class="markdown-p-center">
+            <img src="${g2}" alt="${g1}" style="max-width:${width}"/>
+        </p>
+        <p class="markdown-img-description">
+          ${g1}
+        </p>
+        `;
       });
       resolve(markdown);
     });
@@ -147,13 +160,13 @@ module.exports = {
 };
 /* 图片自定义设置结束 */
 ```
-- `Ctrl+,`打开设置，扩展中对该差距的显示主题和代码块主题进行选择，笔者通常选择的是Monokai；
+- `Ctrl+,`打开设置，扩展中对该差距的显示主题和代码块主题进行选择，笔者通常选择的是`Monokai`；
 #### 1.2.5 Typora配置
 - 安装该软件后，右键快捷菜单会多一个Open In Typora的选项，不过该选项要生效，需要添加Typora安装目录到Path环境变量；
-- Typora软件下载地址：[https://www.typora.io/](https://www.typora.io/)；
-- Typora主题下载地址1(下载很慢)：[https://theme.typora.io/](https://theme.typora.io/)；
-- Typora主题下载地址2(下载快，但是只有部分，在Media中)：[https://github.com/typora/typora-theme-gallery](https://github.com/typora/typora-theme-gallery)；
-- Typera主题配置(笔者预览通常选择Mo-Dark，打印选择Mo)；
+- Typora软件下载地址：[点击下载](https://www.typora.io/)；
+- Typora主题下载地址1，官网下载地址，下载很慢，[点击下载](https://theme.typora.io/)；
+- Typora主题下载地址2，下载快，但是只有部分在Media中，[点击下载](https://github.com/typora/typora-theme-gallery)；
+- Typera主题配置(笔者预览通常选择Mo-Dark，导出PDF选择Mo)；
 ```css
 /* 
  * 添加主题路径：C:\Users\XXX\AppData\Roaming\Typora\themes
@@ -177,7 +190,7 @@ code {
 ```
 #### 1.2.6 LeetCode刷题环境配置
 - 安装插件`LeetCode`，该插件可以使用VSCode刷LeetCode，安装后侧边栏便会多一个LeetCode图标；
-- 安装插件后还需要进行NodeJS配置，否则插件无法正常运行，NodeJS安装见笔者GitHub[NodeJS配置](https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/NodeJSDeploy.md)；
+- 安装插件后还需要进行NodeJS配置，否则插件无法正常运行，NodeJS安装见笔者GitHub的NodeJS配置，[点击查看](https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/NodeJSDeploy.md)；
 - NodeJS安装完毕后需要对插件进行设置；
   - `Ctrl+,`打开设置，扩展中选择LeetCode，设置`Node Path`为此类形式`C:\Enviornments\NodeJS\NodeFile\node.exe`(实际以自己安装路径为准)；
   - 设置`Endpoint`为`leetcode-cn`，这东西不设置的话默认是US的；
@@ -188,15 +201,14 @@ code {
 - 写完题解后，最下面有个`Submit | Test`便是对应web端的提交和执行测试；
 - **小建议**：笔者建议可以刷题的工作路径，可以设置为一个固定的GitHub项目文件夹，这样还能远端备份自己的题解，顺便进行GitHub打卡，一举两得；
 ## 2 Sublime Text安装与配置
-### 2.1 安装
+### 2.1 安装与破解
 #### 2.1.1 安装版与绿色版
 - 直接安装便可配置鼠标右键菜单，且会写入注册表数据；
 - 解压即用，需要自己配置右键快捷菜单；
-### 2.2 配置
-#### 2.2.1 内部配置
-- 破解与激活；
+#### 2.1.2 破解激活
+- 破解与激活
+  - 修改hosts文件，添加以下内容屏蔽激活验证；
 ```shell
-# 修改hosts文件，添加以下内容屏蔽激活验证
 127.0.0.1 sublimetext.com
 127.0.0.1 sublimehq.com
 127.0.0.1 license.sublimehq.com
@@ -205,7 +217,10 @@ code {
 0.0.0.0 license.sublimehq.com
 0.0.0.0 45.55.255.55
 0.0.0.0 45.55.41.22
-# 输入激活许可（注：此处许可适用Sublime Text3 Build3211）
+```
+- 输入激活许可激活;
+>注：此处许可适用Sublime Text3 Build3211。
+```shell
 ----- BEGIN LICENSE -----
 Member J2TeaM
 Single User License
@@ -219,58 +234,49 @@ A684C2DC 0B1583D4 19CBD290 217618CD
 DD9AF44B 99C49590 D2DBDEE1 75860FD2
 8C8BB2AD B2ECE5A4 EFC08AF2 25A9B864
 ------ END LICENSE ------
-# 做完以上工作，如果防止其自动更新，可以关闭自动检查
-# preferences->Setting-User
-# 添加以下内容
+```
+- 做完以上工作，如果防止其自动更新，可以关闭自动检查，在`preferences->Setting-User`设置文件中添加以下内容；
+```json
 "update_check": false,
 ```
-- 安装Package Control;
-```shell
-# 国内未知原因在线安装Packacge Control会失败，所以采取离线安装方式
-# Package Contro离线包下载地址
-https://github.com/wbond/package_contro
-# 进入github的package_control项目后，直接下载整个项目的zip
-# 下载的项目解压直接重命名放在Sublime Text3的根目录中Data/Packages目录下即
-# 上述操作过后Package Control依旧无法使用
-# 原因是获取包安装清单文件channel_v3.json失
-# channel_v3.json文件源地址
-# 这个地址时快时慢的，网好的时候可以使用该地址下载最新的channel_v3.json
-https://packagecontrol.io/channel_v3.jso
-# 笔者github中channel_v3.json下载地址
-# 该json下载时间为2021年2月23日
-https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/assets/channel_v3.jso
-# 下载后将该文件放到Sublime Text3根目录的Packages文件夹中，毕竟是包清单，放在这里比较合理
-# 修改Package Control用户设置，Preference->package setting->package control->setting
-# 在Package Control.subime-setting--User文件中添加以下内容
+### 2.2 配置
+#### 2.2.1 安装Package Control;
+- 国内未知原因在线安装Packacge Control会失败，所以采取离线安装方式，下载地址为[GitHub下载](https://github.com/wbond/package_control)；
+- 进入GitHub的package_control项目后，直接下载整个项目的zip；
+- 下载的项目解压直接重命名放在Sublime Text3的根目录中`Data/Packages`目录下即可；
+- 上述操作过后Package Control可能依旧无法使用，原因是获取包安装清单文件channel_v3.json失败；
+- 如果网好的时候，可以直接从原地址下载该json文件，[源地址下载](https://packagecontrol.io/channel_v3.json)；
+- 笔者GitHub中也备份了channel_v3.json(源地址下载时间为2021/02/23)，[点击下载](https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/assets/channel_v3.json)；
+- 下载后将该文件放到Sublime Text3根目录的Packages文件夹中，毕竟是包清单，放在这里比较合理；
+- 修改`Package Control`用户设置，`Preference->package setting->package control->setting`；
+- 在`Package Control.subime-setting--User`文件中添加以下内容；
+```json
 "channels":
 [
-  "C:/Apps/TextEditors/SublimeText3/Packages/channel_v3.json"
+  "C:/Apps/TextEditors/SublimeText3/Packages/channel_v3.json",
 ]
-# 进行完上述操作，Package Control即可正常使用
 ```
-- 汉化以及其他配置
-```shell
-# 汉化
-# Ctrl+Shift+P打开命令窗口，输入Install Package
-# 候选中会看到Package Control: Install Package选项，点击后则会跳出包安装窗口
-# 在包安装窗口输入localizeMenu，安装该插件
-# 安装localizedMenu后，在Preference->show language->中文，即可显示中文界
-# 侧边栏颜色同步
-# 安装SyncedSidebarBg，使侧边栏与编辑区主题配色一致
-# 注意，安装侧边栏背景同步插件后，当前侧边栏的配色不会同步默认的Monokai配色
-# 若要同步配色可以切换下主题，或者Ctrl+Shift+P安装Monokai Gray和Monokai Dark主题
-# 当然其他主题也可，笔者比较喜欢这个系列的主
-# 禁用和启用插件
-# 禁用插件Ctrl+Shift+P，输入Disable Package，选择Package Control: Disable Package，弹出窗口选择要禁用的即可
-# 启用插件Ctrl+Shift+P，输入Enable Package，选择Package Control: Enable Package，弹出窗口选择要启用的即
-# 移除插件
-# Ctrl+Shift+P，输入Remove Package，选择Package Control: Remove Packsge，弹出窗口选择要移除的即
-# 安装SideBarEnhancements插件
-# 该插件增强了侧边栏功能
-# Ctrl+Shift+P，输入install package，选择Package Control: Install Package，弹出窗口输入插件名称点击即可安装
-# 安装后配置，该配置适合做web开发，做各种浏览器调试，从而增加了不同浏览器打开的快捷键
-# 配置文件Preference->Package Setting->Side Bar->Key Binding-User
-# 打开后在Default(Windows).sublime-keymap文件中添加以下内容
+- 自此，Package Control即可正常使用；
+#### 2.2.2 汉化
+- `Ctrl+Shift+P`打开命令窗口，输入`Install Package`；
+- 候选中会看到`Package Control: Install Package`选项，点击后则会跳出包安装窗口；
+- 在包安装窗口输入`localizeMenu`，安装该插件；
+- 安装`localizedMenu`后，选择`Preference->show language->中文`，即可显示中文界面；
+#### 2.2.3 侧边栏颜色同步
+- 安装`SyncedSidebarBg`，使侧边栏与编辑区主题配色一致；
+- 注意，安装侧边栏背景同步插件后，当前侧边栏的配色不会同步默认的Monokai配色；
+- 若要同步配色可以切换下主题，或者`Ctrl+Shift+P`安装`Monokai Gray`和`Monokai Dark`主题，当然其他主题也可，笔者比较喜欢这个系列的主题；
+#### 2.2.3 禁用、启用和移除插件
+- 禁用插件`Ctrl+Shift+P`，输入`Disable Package`，选择`Package Control: Disable Package`，弹出窗口选择要禁用的即可；
+- 启用插件`Ctrl+Shift+P`，输入`Enable Package`，选择`Package Control: Enable Package`，弹出窗口选择要启用的即可；
+- 移除插件`Ctrl+Shift+P`，输入`Remove Package`，选择`Package Control: Remove Packsge`，弹出窗口选择要移除的即可；
+#### 2.2.3 安装SideBarEnhancements插件
+- 该插件增强了侧边栏功能；
+- `Ctrl+Shift+P`输入`install package`，选择`Package Control: Install Package`，弹出窗口输入插件名称点击即可安装；
+- 安装后配置，该配置适合web开发做各种浏览器调试，从而增加了不同浏览器打开的快捷键；
+- 配置文件`Preference->Package Setting->Side Bar->Key Binding-User`；
+- 打开后在`Default(Windows).sublime-keymap`文件中添加以下内容；
+```json
 [
   { "keys": ["ctrl+shift+c"], "command": "copy_path" }
   // edge
@@ -305,41 +311,47 @@ https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/asset
           "extensions":".*"
       }
   },
-
-# 同以上步骤安装ConvertToUTF8插件，解决中文乱码的问题
-# 同以上步骤安装Bracket Highlighter，使括号、引号、html标签等高亮显示
-```
-#### 2.2.2 使用注意事项
-```shell
-# 对于Mac，笔者看到网上有人说，由于文件索引会经常卡死，并提供了解决方法，笔者也将其解决方案记录了过来
-# Preference->Setting-User
-# 在打开的文件中添加以下内容
-"index_file": false
-# 在写代码的过程中，有时候由于分栏，或者现实问题，一行内容如果显示不下会自动换行，如果不希望自动换行，可以进行如下设置
-# 同样是在Preference->Setting-User
-"word_wrap": false
-# 对于初次启动的Sublime，字体显示和大小可能不好看而且小，所以可以进行如下设置
-# 同样是在Preference->Setting-User
-"font_face": "JetBrains Mono NL",
-"font_size": 12
-# 默认情况下Sublime的vim模式是启用状态，如果一不小心按了esc就会是文件进入Command Mode，无法进行正常编辑
-# 这种情况下有两种处理方式
-# 第一种处理方式：点击A键或者I键或者O键即可推出Command Mode模式
-# 第二种处理方式：关闭vim模式，禁用Vintage插件
-# 同样是在Preference->Setting-User
-"ignored_packages":
-[
-    "Vintage"
 ]
 ```
-#### 2.2.3 右键菜单配置
-  - `Win+R`输入regedit打开注册表；
+#### 2.2.4 其他配置
+- 同以上步骤安装`ConvertToUTF8`插件，解决中文乱码的问题；
+- 同以上步骤安装`BracketHighlighter`，使括号、引号、html标签等高亮显示；
+#### 2.2.5 使用注意事项
+- 对于初次启动的Sublime，字体显示和大小可能不好看而且小，所以可以进行如下设置；
+- 按此路径`Preference->Setting-User`打开的设置文件,添加以下内容；
+```json
+"font_face": "JetBrains Mono NL",
+"font_size": 12,
+```
+- 对于Mac，笔者看到网上有人说，由于文件索引会经常卡死，并提供了解决方法，笔者也将其解决方案记录了过来；
+- 同样是在`Preference->Setting-User`打开的设置文件中添加以下内容；
+```json
+"index_file": false,
+```
+- 在写代码的过程中，有时候由于分栏，或者现实问题，一行内容如果显示不下会自动换行，如果不希望自动换行，可以进行如下设置；
+- 同样是在`Preference->Setting-User`打开的设置文件中添加以下内容；
+```json
+"word_wrap": false,
+```
+- 默认情况下Sublime的vim模式是启用状态，如果一不小心按了esc就会是文件进入Command Mode，无法进行正常编辑；
+- 这种情况下有两种处理方式；
+  - 第一种处理方式：点击A键或者I键或者O键即可推出Command Mode模式；
+  - 第二种处理方式：关闭vim模式，禁用Vintage插件；
+- 第二种方式需要在`Preference->Setting-User`打开的设置文件中添加以下内容；
+```json
+"ignored_packages":
+[
+    "Vintage",
+]
+```
+#### 2.2.6 右键菜单配置
+  - `Win+R`输入`regedit`打开注册表；
   - 定位到`HKEY_CLASSES_ROOT->*->shell`路径下；
   - 新建`SublimeText3`项，并修改`(默认)`字符串值为`Sublime Text 打开`；
   - 在`SublimeText3`项下新建字符串值，重命名为`Icon`，并修改其中的值为`C:/Apps/TextEditors/SublimeText3/sublime_text.exe`；
   - 在`SublimeText3`项下新建`command`项，并修改`(默认)`字符串值为`"C:/Apps/TextEditors/SublimeText3/sublime_text.exe" "%1"`；
   - 自此，右键快捷菜单便会出现相关的快捷方式；
-#### 2.2.4 右键菜单配置示例图
+#### 2.2.7 右键菜单配置示例图
 - SublimeText3项下的配置
 ![SublimeText3_01](./image/TextEditors_SublimeText3_01.png)
 - command项下的配置
@@ -350,7 +362,7 @@ https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/asset
 - 如果嫌配置麻烦，可以使用安装版本傻瓜式安装，一键配置；
 - 如果喜欢绿色版，选择改版，这个版本的安装包，解压即用，但是不会往注册表写入内容，所以右键也没有快捷方式；
 #### 3.1.2 针对绿色版的右键打开方式配置
-- `Win+R`输入regedit打开注册表；
+- `Win+R`输入`regedit`打开注册表；
 - 定位到`HKEY_CLASSES_ROOT->*->shell`路径下；
 - 新建`Notepad++`项，并修改`(默认)`字符串值为`Nodepad++ 打开`；
 - 在`Notepad++`项下新建字符串值，重命名为`Icon`，并修改其中的值为`C:/Apps/TextEditors/Notepad++/notepad++.exe`；
@@ -363,5 +375,5 @@ https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/asset
 ![NPP_02](./image/TextEditors_NPP_02.png)
 ### 3.2 题外话
 - Nodepad++为免费版文本编辑器，但是界面古老，且作者是个反华分子；
-- 虽然该软件的作者有点难以让人接受，但是该软件还是有不少可去之处，比如批量删除空行还是挺方便的；
+- 虽然该软件的作者有点让人难以接受，但是该软件还是有不少可取之处，比如批量删除空行等操作还是挺方便的；
 - 虽然功能强大，但是大部分时候用着还是不如VSCode和Sublime Text舒服，所以当作备用吧；
