@@ -38,8 +38,16 @@
     # NODE_PATH
     C:\NodeJS\NodeFile\node_global;
     ```
-- NODE_GLOBAL_PAT环境变量（可选）
+- NODE_GLOBAL_PATH环境变量（可选）
     ```shell
     # NODE_GLOBAL_PATH
     C:\NodeJS\NodeFile\node_global\node_moules;
+    ```
+- Path环境变量
+    ```shell
+    # Path —— 非Win10版本系统Path环境变量配置
+    %NODE_HOME%;%NODE_PATH%;%NODE_GLOBAL_PATH%;
+
+    # Path —— Win10系统Path环境变量配置，Win10中Path环境变量认绝对路径
+    C:\NodeJS\NodeFile;C:\NodeJS\NodeFile\node_global;C:\NodeJS\NodeFile\node_global\node_moules;
     ```

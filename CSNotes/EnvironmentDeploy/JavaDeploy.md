@@ -43,6 +43,9 @@
     ```
 - Path中的配置
     ```shell
-    # Path
+    # Path —— 非Win10版本环境变量Path配置
     %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+
+    # Path —— Win10版本环境变量Path配置，Win10的Path环境变量需要用绝对路径
+    C:\Enviornments\Java\JDK8\bin;C:\Enviornments\Java\JDK8\jre\bin;
     ```
