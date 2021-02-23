@@ -8,14 +8,14 @@
 - 虽然他很强大，但是随着一次又一次更新，插件的增多，也有了启动慢等特点；
 - 虽然目前它还有不少缺点，但是就笔者当前的使用来看，用的是最舒服的；
 ### 1.2 安装与配置
-#### 1.2.1 下载安装；
+#### 1.2.1 下载安装
   - 下载地址[https://code.visualstudio.com/](https://code.visualstudio.com/);
   - VSCode在Windows上只有安装版，不过毕竟是微软自家的产品，倒也能理解；
-#### 1.2.2 基本配置；
+#### 1.2.2 基本配置
 - 插件安装：`Ctrl+Shift+X`然后输入想要的插件名称检索进行安装；
 - 汉化；VSCode目前直接安装后是英文界面，需要安装汉化插件`Chinese (Simplified) Language Pack for Visual Studio Code`；
 - 界面字体显示设置：`Ctrl+,`进入可视化设置界面，即可进行相关的显示设置；
-#### 1.2.3 Markdowm环境配置；
+#### 1.2.3 Markdowm环境配置
 - 安装`Marodown Preview Enhanced`插件，可以预览Markdown，并且含有多种主题，也可导出html和pdf;
 - 配置`Prince`，以导出pdf (其实导出的PDF很糟糕，所以可选可不选，个人建议还是不用配置了，配置Typora更香);
 - 安装插件`Markdown All In One`，该插件提供快捷键、目录和自动预览等功能(不过自动预览很丑)；
@@ -175,7 +175,7 @@ code {
     font-size: 15px;
 }
 ```
-#### 1.2.6 LeetCode刷题环境配置；
+#### 1.2.6 LeetCode刷题环境配置
 - 安装插件`LeetCode`，该插件可以使用VSCode刷LeetCode，安装后侧边栏便会多一个LeetCode图标；
 - 安装插件后还需要进行NodeJS配置，否则插件无法正常运行，NodeJS安装见笔者GitHub[NodeJS配置](https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/NodeJSDeploy.md)；
 - NodeJS安装完毕后需要对插件进行设置；
@@ -189,11 +189,11 @@ code {
 - **小建议**：笔者建议可以刷题的工作路径，可以设置为一个固定的GitHub项目文件夹，这样还能远端备份自己的题解，顺便进行GitHub打卡，一举两得；
 ## 2 Sublime Text安装与配置
 ### 2.1 安装
-#### 2.1.1 安装版与绿色版；
+#### 2.1.1 安装版与绿色版
 - 直接安装便可配置鼠标右键菜单，且会写入注册表数据；
 - 解压即用，需要自己配置右键快捷菜单；
 ### 2.2 配置
-#### 2.2.1 内部配置；
+#### 2.2.1 内部配置
 - 破解与激活；
 ```shell
 # 修改hosts文件，添加以下内容屏蔽激活验证
@@ -309,7 +309,7 @@ https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/asset
 # 同以上步骤安装ConvertToUTF8插件，解决中文乱码的问题
 # 同以上步骤安装Bracket Highlighter，使括号、引号、html标签等高亮显示
 ```
-#### 2.2.2 使用注意事项；
+#### 2.2.2 使用注意事项
 ```shell
 # 对于Mac，笔者看到网上有人说，由于文件索引会经常卡死，并提供了解决方法，笔者也将其解决方案记录了过来
 # Preference->Setting-User
@@ -332,31 +332,31 @@ https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/asset
     "Vintage"
 ]
 ```
-#### 2.2.3 右键菜单配置；
+#### 2.2.3 右键菜单配置
   - `Win+R`输入regedit打开注册表；
   - 定位到`HKEY_CLASSES_ROOT->*->shell`路径下；
   - 新建`SublimeText3`项，并修改`(默认)`字符串值为`Sublime Text 打开`；
   - 在`SublimeText3`项下新建字符串值，重命名为`Icon`，并修改其中的值为`C:/Apps/TextEditors/SublimeText3/sublime_text.exe`；
   - 在`SublimeText3`项下新建`command`项，并修改`(默认)`字符串值为`"C:/Apps/TextEditors/SublimeText3/sublime_text.exe" "%1"`；
   - 自此，右键快捷菜单便会出现相关的快捷方式；
-#### 2.2.4 右键菜单配置示例图如下；
+#### 2.2.4 右键菜单配置示例图
 - SublimeText3项下的配置
 ![SublimeText3_01](./image/TextEditors_SublimeText3_01.png)
 - command项下的配置
 ![SublimeText3_01](./image/TextEditors_SublimeText3_02.png)
 ## 3 Notepad++安装与配置
 ### 3.1 安装与配置
-#### 3.1.1 安装版和绿色版；
+#### 3.1.1 安装版和绿色版
 - 如果嫌配置麻烦，可以使用安装版本傻瓜式安装，一键配置；
 - 如果喜欢绿色版，选择改版，这个版本的安装包，解压即用，但是不会往注册表写入内容，所以右键也没有快捷方式；
-#### 3.1.2 针对绿色版的右键打开方式配置；
+#### 3.1.2 针对绿色版的右键打开方式配置
 - `Win+R`输入regedit打开注册表；
 - 定位到`HKEY_CLASSES_ROOT->*->shell`路径下；
 - 新建`Notepad++`项，并修改`(默认)`字符串值为`Nodepad++ 打开`；
 - 在`Notepad++`项下新建字符串值，重命名为`Icon`，并修改其中的值为`C:/Apps/TextEditors/Notepad++/notepad++.exe`；
 - 在`Nodepad++`项下新建`command`项，并修改`(默认)`字符串值为`"C:/Apps/TextEditors/Notepad++/notepad++.exe" "%1"`；
 - 自此，右键快捷菜单便会出现相关的快捷方式；
-#### 3.1.3 针对绿色版Nodepad++配置右键快捷菜单示例图如下；
+#### 3.1.3 绿色版右键快捷菜单示例图
 - Notepad++ 项下的配置
 ![NPP_01](./image/TextEditors_NPP_01.png)
 - command项下的配置
