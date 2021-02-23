@@ -1,36 +1,43 @@
-## 文本编辑器的安装与配置
+# 文本编辑器的安装与配置
 ---
 >注意：以下内容中涉及到的所有相关文件路径以读者自己实际的安装路径为准，此处仅为示例。
-### 1 VSCode安装与配置
-#### 1.1 说明
+## 1 VSCode安装与配置
+### 1.1 说明
 - VSCode是微软提供的一个免费开源现代化轻量级跨平台编辑；
 - 由于依托微软，所以具有强大优势；
 - 虽然他很强大，但是随着一次又一次更新，插件的增多，也有了启动慢等特点；
 - 虽然目前它还有不少缺点，但是就笔者当前的使用来看，用的是最舒服的；
-#### 1.2 安装与配置
-- 下载安装；
+### 1.2 安装与配置
+#### 1.2.1 下载安装；
   - 下载地址[https://code.visualstudio.com/](https://code.visualstudio.com/);
   - VSCode在Windows上只有安装版，不过毕竟是微软自家的产品，倒也能理解；
-- 基本配置；
-  - 插件安装：`Ctrl+Shift+X`然后输入想要的插件名称检索进行安装；
-  - 汉化；VSCode目前直接安装后是英文界面，需要安装汉化插件`Chinese (Simplified) Language Pack for Visual Studio Code`；
-  - 界面字体显示设置：`Ctrl+,`进入可视化设置界面，即可进行相关的显示设置；
-- Markdowm环境配置；
-  - 安装`Marodown Preview Enhanced`插件，可以预览Markdown，并且含有多种主题，也可导出html和pdf;
-    - 配置`Prince`，以导出pdf (其实导出的PDF很糟糕，所以可选可不选，个人建议还是不用配置了);
+#### 1.2.2 基本配置；
+- 插件安装：`Ctrl+Shift+X`然后输入想要的插件名称检索进行安装；
+- 汉化；VSCode目前直接安装后是英文界面，需要安装汉化插件`Chinese (Simplified) Language Pack for Visual Studio Code`；
+- 界面字体显示设置：`Ctrl+,`进入可视化设置界面，即可进行相关的显示设置；
+#### 1.2.3 Markdowm 环境配置；
+- 安装`Marodown Preview Enhanced`插件，可以预览Markdown，并且含有多种主题，也可导出html和pdf;
+- 配置`Prince`，以导出pdf (其实导出的PDF很糟糕，所以可选可不选，个人建议还是不用配置了，配置Typora更香);
+- 安装插件`Markdown All In One`，该插件提供快捷键、目录和自动预览等功能(不过自动预览很丑)；
+- 安装数学公式插件`Markdowm+Math`，该插件提供自动Katex语法索引，补充All In One的不足；
+- 安装插件`Markdown Shortcuts`，安装该插件后会在右键快捷方式中多一堆快捷操作，补充All In One的不足；
+- 安装插件`Open In Typora`，该插件可以以不同主题导出pdf，且比较美观，只不过需要安装额外的Typora软件；
 ```shell
 # 下载地址
 https://www.princexml.com/download    
 # 绿色版zip下载直接解压，配置bin目录到Path的环境变量即可
 ```
-    - 显示配置(style.less)；
+#### 1.2.4 Markdown Preview Enhanced 预览配置
+- style.less；
 ```css
-/* Ctrl+Shift+P输入Customize Css，选择Markdown Preview Enhanced: Customize Css
+/* 
+ * Ctrl+Shift+P输入Customize Css，选择Markdown Preview Enhanced: Customize Css
  * 用以下内容替换原本内容
  * 其中涉及字体的设置按自己喜好进行替换
+ */
  
 /* Please visit the URL below for more information: */
-/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css *
+/* https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 .markdown-preview.markdown-preview {
   // modify your style here
   // eg: background-color: blue;
@@ -76,7 +83,7 @@ html body img{
 */
 /* 代码块字体设置结束 */
 ```
-    - 显示配置(Parser.js);
+- parser.js;
 ```js
 /* 
  * Ctrl+Shift+P，输入Extend Parser，选择Markdown Preview Enhanced: Extend Parser
@@ -140,16 +147,13 @@ module.exports = {
 };
 /* 图片自定义设置结束 */
 ```
-    - 主题选择：笔者喜欢的是Monokai；
-  - 安装插件`Markdown All In One`，该插件提供快捷键、目录和自动预览等功能(不过自动预览很丑)；
-  - 安装数学公式插件`Markdowm+Math`，该插件提供自动Katex语法索引，补充All In One的不足；
-  - 安装插件`Markdown Shortcuts`，安装该插件后会在右键快捷方式中多一堆快捷操作，补充All In One的不足；
-  - 安装插件`Open In Typora`，该插件可以以不同主题导出pdf，且比较美观，只不过需要安装额外的Typora软件；
-    - 安装该软件后，右键快捷菜单会多一个Open In Typora的选项，不过该选项要生效，需要添加Typora安装目录到Path环境变量；
-    - Typora软件下载地址：[https://www.typora.io/](https://www.typora.io/)；
-    - Typora主题下载地址1(下载很慢)：[https://theme.typora.io/](https://theme.typora.io/)；
-    - Typora主题下载地址2(下载快，但是只有部分，在Media中)：[https://github.com/typora/typora-theme-gallery](https://github.com/typora/typora-theme-gallery)；
-    - Typera主题配置；
+- `Ctrl+,`打开设置，扩展中对该差距的显示主题和代码块主题进行选择，笔者通常选择的是Monokai；
+#### 1.2.5 Typora 配置
+- 安装该软件后，右键快捷菜单会多一个Open In Typora的选项，不过该选项要生效，需要添加Typora安装目录到Path环境变量；
+- Typora软件下载地址：[https://www.typora.io/](https://www.typora.io/)；
+- Typora主题下载地址1(下载很慢)：[https://theme.typora.io/](https://theme.typora.io/)；
+- Typora主题下载地址2(下载快，但是只有部分，在Media中)：[https://github.com/typora/typora-theme-gallery](https://github.com/typora/typora-theme-gallery)；
+- Typera主题配置(笔者预览通常选择Mo-Dark，打印选择Mo)；
 ```css
 /* 
  * 添加主题路径：C:\Users\XXX\AppData\Roaming\Typora\themes
@@ -171,15 +175,26 @@ code {
     font-size: 15px;
 }
 ```
-- Leetcode刷题环境配置；
-  - 测试
-### 2 Sublime Text安装与配置
-#### 2.1 安装与配置
-- 安装版与绿色版；
-  - 直接安装便可配置鼠标右键菜单，且会写入注册表数据；
-  - 解压即用，需要自己配置右键快捷菜单；
-- 内部配置；
-  - 破解与激活；
+#### 1.2.6 LeetCode 刷题环境配置；
+- 安装插件`LeetCode`，该插件可以使用VSCode刷LeetCode，安装后侧边栏便会多一个LeetCode图标；
+- 安装插件后还需要进行NodeJS配置，否则插件无法正常运行，NodeJS安装见笔者GitHub[NodeJS配置](https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/NodeJSDeploy.md)；
+- NodeJS安装完毕后需要对插件进行设置；
+  - `Ctrl+,`打开设置，扩展中选择LeetCode，设置`Node Path`为此类形式`C:\Enviornments\NodeJS\NodeFile\node.exe`(实际以自己安装路径为准)；
+  - 设置`Endpoint`为`leetcode-cn`，这东西不设置的话默认是US的；
+  - 设置`Show Description`，这个是在刷题的时候，设置题目内容现在的方式，笔者一般选择`In File Comment`，这样可以顺便保存题目，当然，读者视自己喜好选择；
+  - 设置`Work Space Folder`，这个就是题解本地存档路径；
+  - 以上设置完毕，点击侧边栏LeetCode图标，点击那个小地球图标，进行登录，稍等一下，便可开始刷题；
+- VSCode刷题的好处就是每道题目都可以显示通过率，而且还会显示哪个公司的题目；
+- 写完题解后，最下面有个`Submit | Test`便是对应web端的提交和执行测试；
+- **小建议**：笔者建议可以刷题的工作路径，可以设置为一个固定的GitHub项目文件夹，这样还能远端备份自己的题解，顺便进行GitHub打卡，一举两得；
+## 2 Sublime Text 安装与配置
+### 2.1 安装
+#### 2.1.1 安装版与绿色版；
+- 直接安装便可配置鼠标右键菜单，且会写入注册表数据；
+- 解压即用，需要自己配置右键快捷菜单；
+### 2.2 配置
+#### 2.2.1 内部配置；
+- 破解与激活；
 ```shell
 # 修改hosts文件，添加以下内容屏蔽激活验证
 127.0.0.1 sublimetext.com
@@ -209,7 +224,7 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 # 添加以下内容
 "update_check": false,
 ```
-  - 安装Package Control;
+- 安装Package Control;
 ```shell
 # 国内未知原因在线安装Packacge Control会失败，所以采取离线安装方式
 # Package Contro离线包下载地址
@@ -233,7 +248,7 @@ https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/asset
 ]
 # 进行完上述操作，Package Control即可正常使用
 ```
-  - 汉化以及其他配置
+- 汉化以及其他配置
 ```shell
 # 汉化
 # Ctrl+Shift+P打开命令窗口，输入Install Package
@@ -294,7 +309,7 @@ https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/asset
 # 同以上步骤安装ConvertToUTF8插件，解决中文乱码的问题
 # 同以上步骤安装Bracket Highlighter，使括号、引号、html标签等高亮显示
 ```
-  - 使用注意事项；
+#### 2.2.2 使用注意事项；
 ```shell
 # 对于Mac，笔者看到网上有人说，由于文件索引会经常卡死，并提供了解决方法，笔者也将其解决方案记录了过来
 # Preference->Setting-User
@@ -317,32 +332,36 @@ https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/asset
     "Vintage"
 ]
 ```
-- 右键菜单配置；
+#### 2.2.3 右键菜单配置；
   - `Win+R`输入regedit打开注册表；
   - 定位到`HKEY_CLASSES_ROOT->*->shell`路径下；
   - 新建`SublimeText3`项，并修改`(默认)`字符串值为`Sublime Text 打开`；
   - 在`SublimeText3`项下新建字符串值，重命名为`Icon`，并修改其中的值为`C:/Apps/TextEditors/SublimeText3/sublime_text.exe`；
   - 在`SublimeText3`项下新建`command`项，并修改`(默认)`字符串值为`"C:/Apps/TextEditors/SublimeText3/sublime_text.exe" "%1"`；
   - 自此，右键快捷菜单便会出现相关的快捷方式；
-- 右键菜单配置示例图如下；
-![SublimeText3_01|SublimeText3项下的配置](./image/TextEditors_SublimeText3_01.png)
-![SublimeText3_01|command项下的配置](./image/TextEditors_SublimeText3_02.png)
-### 3 Notepad++安装与配置
-#### 3.1 安装与配置
-- 安装版和绿色版；
-  - 如果嫌配置麻烦，可以使用安装版本傻瓜式安装，一键配置；
-  - 如果喜欢绿色版，选择改版，这个版本的安装包，解压即用，但是不会往注册表写入内容，所以右键也没有快捷方式；
-- 针对绿色版的右键打开方式配置；
-  - `Win+R`输入regedit打开注册表；
-  - 定位到`HKEY_CLASSES_ROOT->*->shell`路径下；
-  - 新建`Notepad++`项，并修改`(默认)`字符串值为`Nodepad++ 打开`；
-  - 在`Notepad++`项下新建字符串值，重命名为`Icon`，并修改其中的值为`C:/Apps/TextEditors/Notepad++/notepad++.exe`；
-  - 在`Nodepad++`项下新建`command`项，并修改`(默认)`字符串值为`"C:/Apps/TextEditors/Notepad++/notepad++.exe" "%1"`；
-  - 自此，右键快捷菜单便会出现相关的快捷方式；
-- 针对绿色版Nodepad++配置右键快捷菜单示例图如下；
-![NPP_01|Notepad++项下的配置](./image/TextEditors_NPP_01.png)
-![NPP_02|command项下的配置](./image/TextEditors_NPP_02.png)
-#### 3.2 题外话
+#### 2.2.4 右键菜单配置示例图如下；
+- SublimeText3项下的配置
+![SublimeText3_01](./image/TextEditors_SublimeText3_01.png)
+- command项下的配置
+![SublimeText3_01](./image/TextEditors_SublimeText3_02.png)
+## 3 Notepad++ 安装与配置
+### 3.1 安装与配置
+#### 3.1.1 安装版和绿色版；
+- 如果嫌配置麻烦，可以使用安装版本傻瓜式安装，一键配置；
+- 如果喜欢绿色版，选择改版，这个版本的安装包，解压即用，但是不会往注册表写入内容，所以右键也没有快捷方式；
+#### 3.1.2 针对绿色版的右键打开方式配置；
+- `Win+R`输入regedit打开注册表；
+- 定位到`HKEY_CLASSES_ROOT->*->shell`路径下；
+- 新建`Notepad++`项，并修改`(默认)`字符串值为`Nodepad++ 打开`；
+- 在`Notepad++`项下新建字符串值，重命名为`Icon`，并修改其中的值为`C:/Apps/TextEditors/Notepad++/notepad++.exe`；
+- 在`Nodepad++`项下新建`command`项，并修改`(默认)`字符串值为`"C:/Apps/TextEditors/Notepad++/notepad++.exe" "%1"`；
+- 自此，右键快捷菜单便会出现相关的快捷方式；
+#### 3.1.3 针对绿色版Nodepad++配置右键快捷菜单示例图如下；
+- Notepad++ 项下的配置
+![NPP_01](./image/TextEditors_NPP_01.png)
+- command项下的配置
+![NPP_02](./image/TextEditors_NPP_02.png)
+### 3.2 题外话
 - Nodepad++为免费版文本编辑器，但是界面古老，且作者是个反华分子；
 - 虽然该软件的作者有点难以让人接受，但是该软件还是有不少可去之处，比如批量删除空行还是挺方便的；
 - 虽然功能强大，但是大部分时候用着还是不如VSCode和Sublime Text舒服，所以当作备用吧；
