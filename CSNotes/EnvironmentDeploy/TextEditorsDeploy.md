@@ -15,7 +15,7 @@
 - 插件安装：`Ctrl+Shift+X`然后输入想要的插件名称检索进行安装；
 - 汉化；VSCode目前直接安装后是英文界面，需要安装汉化插件`Chinese (Simplified) Language Pack for Visual Studio Code`；
 - 界面字体显示设置：`Ctrl+,`进入可视化设置界面，即可进行相关的显示设置；
-#### 1.2.3 Markdowm 环境配置；
+#### 1.2.3 Markdowm环境配置；
 - 安装`Marodown Preview Enhanced`插件，可以预览Markdown，并且含有多种主题，也可导出html和pdf;
 - 配置`Prince`，以导出pdf (其实导出的PDF很糟糕，所以可选可不选，个人建议还是不用配置了，配置Typora更香);
 - 安装插件`Markdown All In One`，该插件提供快捷键、目录和自动预览等功能(不过自动预览很丑)；
@@ -27,7 +27,7 @@
 https://www.princexml.com/download    
 # 绿色版zip下载直接解压，配置bin目录到Path的环境变量即可
 ```
-#### 1.2.4 Markdown Preview Enhanced 预览配置
+#### 1.2.4 Markdown Preview Enhanced预览配置
 - style.less；
 ```css
 /* 
@@ -148,7 +148,7 @@ module.exports = {
 /* 图片自定义设置结束 */
 ```
 - `Ctrl+,`打开设置，扩展中对该差距的显示主题和代码块主题进行选择，笔者通常选择的是Monokai；
-#### 1.2.5 Typora 配置
+#### 1.2.5 Typora配置
 - 安装该软件后，右键快捷菜单会多一个Open In Typora的选项，不过该选项要生效，需要添加Typora安装目录到Path环境变量；
 - Typora软件下载地址：[https://www.typora.io/](https://www.typora.io/)；
 - Typora主题下载地址1(下载很慢)：[https://theme.typora.io/](https://theme.typora.io/)；
@@ -175,7 +175,7 @@ code {
     font-size: 15px;
 }
 ```
-#### 1.2.6 LeetCode 刷题环境配置；
+#### 1.2.6 LeetCode刷题环境配置；
 - 安装插件`LeetCode`，该插件可以使用VSCode刷LeetCode，安装后侧边栏便会多一个LeetCode图标；
 - 安装插件后还需要进行NodeJS配置，否则插件无法正常运行，NodeJS安装见笔者GitHub[NodeJS配置](https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/NodeJSDeploy.md)；
 - NodeJS安装完毕后需要对插件进行设置；
@@ -187,7 +187,7 @@ code {
 - VSCode刷题的好处就是每道题目都可以显示通过率，而且还会显示哪个公司的题目；
 - 写完题解后，最下面有个`Submit | Test`便是对应web端的提交和执行测试；
 - **小建议**：笔者建议可以刷题的工作路径，可以设置为一个固定的GitHub项目文件夹，这样还能远端备份自己的题解，顺便进行GitHub打卡，一举两得；
-## 2 Sublime Text 安装与配置
+## 2 Sublime Text安装与配置
 ### 2.1 安装
 #### 2.1.1 安装版与绿色版；
 - 直接安装便可配置鼠标右键菜单，且会写入注册表数据；
@@ -344,7 +344,7 @@ https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/asset
 ![SublimeText3_01](./image/TextEditors_SublimeText3_01.png)
 - command项下的配置
 ![SublimeText3_01](./image/TextEditors_SublimeText3_02.png)
-## 3 Notepad++ 安装与配置
+## 3 Notepad++安装与配置
 ### 3.1 安装与配置
 #### 3.1.1 安装版和绿色版；
 - 如果嫌配置麻烦，可以使用安装版本傻瓜式安装，一键配置；
