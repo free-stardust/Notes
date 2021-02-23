@@ -175,17 +175,17 @@ module.exports = {
  */
 html,body {
     font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 code {
     font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 #write .CodeMirror-wrap .CodeMirror-code pre {
     font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
-    font-size: 15px;
+    font-size: 13px;
 }
 ```
 #### 1.2.6 LeetCode刷题环境配置
