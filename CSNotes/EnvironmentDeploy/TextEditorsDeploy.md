@@ -2,7 +2,61 @@
 ---
 ### 1 VSCode安装与配置
 ### 2 Sublime Text安装与配置
+#### 2.1 安装与配置
+- 安装版与绿色版；
+  - 直接安装配鼠标右键菜单，且会写入注册表数据；
+  - 解压即用，需要自己配置右键快捷菜单；
+- 配置；
+  - 破解与激活；
+    ```shell
+    # 修改hosts文件，添加以下内容屏蔽激活验证
+    127.0.0.1 sublimetext.com
+    127.0.0.1 sublimehq.com
+    127.0.0.1 license.sublimehq.com
+    127.0.0.1 45.55.255.55
+    127.0.0.1 45.55.41.223
+    0.0.0.0 license.sublimehq.com
+    0.0.0.0 45.55.255.55
+    0.0.0.0 45.55.41.223
 
+    # 输入激活许可（注：此处许可适用Sublime Text3）
+    ----- BEGIN LICENSE -----
+    Member J2TeaM
+    Single User License
+    EA7E-1011316
+    D7DA350E 1B8B0760 972F8B60 F3E64036
+    B9B4E234 F356F38F 0AD1E3B7 0E9C5FAD
+    FA0A2ABE 25F65BD8 D51458E5 3923CE80
+    87428428 79079A01 AA69F319 A1AF29A4
+    A684C2DC 0B1583D4 19CBD290 217618CD
+    5653E0A0 BACE3948 BB2EE45E 422D2C87
+    DD9AF44B 99C49590 D2DBDEE1 75860FD2
+    8C8BB2AD B2ECE5A4 EFC08AF2 25A9B864
+    ------ END LICENSE ------​
+
+    # 做完以上工作，如果防止其自动更新，可以关闭自动检查
+    # preferences->Setting-User
+    # 添加以下内容
+    "update_check": false,
+    ```
+  - 安装Package Control;
+    ```shell
+    # 国内未知原因在线安装Packacge Control会失败，所以采取离线安装方式
+    # Package Contro离线包下载地址
+    https://github.com/wbond/package_control
+
+    # 进入github的package_control项目后，直接下载整个项目的zip
+    # 下载的项目解压直接重命名放在Sublime Text3的根目录中Data/Packages目录下即可
+
+    # 上述操作过后Package Control依旧无法使用
+    # 原因是获取包安装清单文件channel_v3.json失败
+
+    # channel_v3.json文件源地址
+    # 这个地址时快时慢的，网好的时候可以下载最新的
+    https://packagecontrol.io/channel_v3.json
+
+    # github
+    ```
 ### 3 Notepad++安装与配置
 #### 3.1 安装与配置
 - 安装版和绿色版；
