@@ -16,15 +16,49 @@
 - 汉化；VSCode目前直接安装后是英文界面，需要安装汉化插件`Chinese (Simplified) Language Pack for Visual Studio Code`；
 - 界面字体显示设置：`Ctrl+,`进入可视化设置界面，即可进行相关的显示设置；
 #### 1.2.3 Markdowm环境配置
-- 安装`Marodown Preview Enhanced`插件，可以预览Markdown，并且含有多种主题，也可导出html和pdf；
-  - 配置`Prince`，以导出pdf (其实导出的PDF很糟糕，所以可选可不选，个人建议还是不用配置了，配置Typora更香)；
-  - `Prince`官网下载地址：[点击下载](https://www.princexml.com/download)；
-  - 绿色版zip下载直接解压，配置bin目录到Path的环境变量即可；
 - 安装插件`Markdown All In One`，该插件提供快捷键、目录和自动预览等功能(不过自动预览很丑)；
 - 安装数学公式插件`Markdowm+Math`，该插件提供自动Katex语法索引，补充All In One的不足；
 - 安装插件`Markdown Shortcuts`，安装该插件后会在右键快捷方式中多一堆快捷操作，补充All In One的不足；
-- 安装插件`Open In Typora`，该插件可以以不同主题导出pdf，且比较美观，只不过需要安装额外的Typora软件；
-#### 1.2.4 Markdown Preview Enhanced预览配置
+- 安装插件`Open In Typora`，该插件预览Markdown效果更好，并且可以以不同主题导出pdf，且比较美观，只不过需要安装额外的Typora软件；
+- (可选)安装`Marodown Preview Enhanced`插件，可以预览Markdown，并且含有多种主题，也可导出html和pdf；
+  - 配置`Prince`，以导出pdf (其实导出的PDF很糟糕，所以可选可不选，个人建议还是不用配置了，配置Typora更香)；
+  - `Prince`官网下载地址：[点击下载](https://www.princexml.com/download)；
+  - 绿色版zip下载直接解压，配置bin目录到Path的环境变量即可；
+#### 1.2.4 Typora配置
+- 安装插件`Open In Typora`后，右键快捷菜单会多一个`Open In Typora`的选项，不过该选项要生效，需要添加Typora安装目录到Path环境变量；
+- Typora软件下载地址：[点击下载](https://www.typora.io/)；
+- Typora主题下载地址1，官网下载地址，下载很慢，[点击下载](https://theme.typora.io/)；
+- Typora主题下载地址2，下载快，但是只有部分在Media中，[点击下载](https://github.com/typora/typora-theme-gallery)；
+- Typera主题配置(笔者预览通常选择Mo-Dark，导出PDF选择Mo)；
+```css
+/* 
+ * 添加主题路径：C:\Users\XXX\AppData\Roaming\Typora\themes
+ * 设置全局字体属性
+ * 在该路径下新建名为base.user.css的文件，并添加以下内容
+ */
+html,body {
+    font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
+    font-size: 15px;
+}
+
+code {
+    font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
+    font-size: 13px;
+}
+
+#write .CodeMirror-wrap .CodeMirror-code pre {
+    font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
+    font-size: 13px;
+}
+```
+- **说明1**：在编写Markdown文件是，如果插入图片，记得在图片前空一行，这样Typora预览的图片才会居中；
+- **说明2**：在Markdown文件中插入LaTex公式时，如果是块间公式，要按一下方式编写
+```text
+$$
+[LaTex公式]
+$$
+```
+#### 1.2.5 Markdown Preview Enhanced预览配置(可选，不配置也OK，毕竟Typora预览更好)
 - style.less
 ```css
 /* 
@@ -161,33 +195,6 @@ module.exports = {
 /* 图片自定义设置结束 */
 ```
 - `Ctrl+,`打开设置，扩展中对该差距的显示主题和代码块主题进行选择，笔者通常选择的是`Monokai`；
-#### 1.2.5 Typora配置
-- 安装该软件后，右键快捷菜单会多一个Open In Typora的选项，不过该选项要生效，需要添加Typora安装目录到Path环境变量；
-- Typora软件下载地址：[点击下载](https://www.typora.io/)；
-- Typora主题下载地址1，官网下载地址，下载很慢，[点击下载](https://theme.typora.io/)；
-- Typora主题下载地址2，下载快，但是只有部分在Media中，[点击下载](https://github.com/typora/typora-theme-gallery)；
-- Typera主题配置(笔者预览通常选择Mo-Dark，导出PDF选择Mo)；
-```css
-/* 
- * 添加主题路径：C:\Users\XXX\AppData\Roaming\Typora\themes
- * 设置全局字体属性
- * 在该路径下新建名为base.user.css的文件，并添加以下内容
- */
-html,body {
-    font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
-    font-size: 15px;
-}
-
-code {
-    font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
-    font-size: 13px;
-}
-
-#write .CodeMirror-wrap .CodeMirror-code pre {
-    font-family: JetBrains Mono NL, Noto Sans S Chinese Regular;
-    font-size: 13px;
-}
-```
 #### 1.2.6 LeetCode刷题环境配置
 - 安装插件`LeetCode`，该插件可以使用VSCode刷LeetCode，安装后侧边栏便会多一个LeetCode图标；
 - 安装插件后还需要进行NodeJS配置，否则插件无法正常运行，NodeJS安装见笔者GitHub的NodeJS配置，[点击查看](https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/NodeJSDeploy.md)；
@@ -208,7 +215,7 @@ code {
 #### 2.1.2 破解激活
 - 破解与激活
   - 修改hosts文件，添加以下内容屏蔽激活验证；
-```shell
+```text
 127.0.0.1 sublimetext.com
 127.0.0.1 sublimehq.com
 127.0.0.1 license.sublimehq.com
@@ -220,7 +227,7 @@ code {
 ```
 - 输入激活许可激活;
 >注：此处许可适用Sublime Text3 Build3211。
-```shell
+```text
 ----- BEGIN LICENSE -----
 Member J2TeaM
 Single User License
@@ -310,7 +317,7 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
           "application": "C:/Program Files/Internet Explorer/iexplore.exe",
           "extensions":".*"
       }
-  },
+  }
 ]
 ```
 #### 2.2.4 其他配置
@@ -353,9 +360,13 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
   - 自此，右键快捷菜单便会出现相关的快捷方式；
 #### 2.2.7 右键菜单配置示例图
 - SublimeText3项下的配置
+
 ![SublimeText3_01](./image/TextEditors_SublimeText3_01.png)
+
 - command项下的配置
+
 ![SublimeText3_01](./image/TextEditors_SublimeText3_02.png)
+
 ## 3 Notepad++安装与配置
 ### 3.1 安装与配置
 #### 3.1.1 安装版和绿色版
@@ -370,9 +381,13 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 - 自此，右键快捷菜单便会出现相关的快捷方式；
 #### 3.1.3 绿色版右键快捷菜单示例图
 - Notepad++ 项下的配置
+
 ![NPP_01](./image/TextEditors_NPP_01.png)
+
 - command项下的配置
+
 ![NPP_02](./image/TextEditors_NPP_02.png)
+
 ### 3.2 题外话
 - Nodepad++为免费版文本编辑器，但是界面古老，且作者是个反华分子；
 - 虽然该软件的作者有点让人难以接受，但是该软件还是有不少可取之处，比如批量删除空行等操作还是挺方便的；

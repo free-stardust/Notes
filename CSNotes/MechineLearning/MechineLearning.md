@@ -26,33 +26,49 @@
 ### 2 单变量线性回归
 #### 2.1 代价函数
 - **假设函数**
-    $$h_\theta(x)=\theta_0+\theta_1x$$
+    $$
+    h_\theta(x)=\theta_0+\theta_1x
+    $$
 - **参数**
-    $$\theta_0,\theta_1$$
+    $$
+    \theta_0,\theta_1
+    $$
 - **代价函数**
-    $$J(\theta_0,\theta_1)=\frac{1}{2m}\sum\limits_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^{2}$$
+    $$
+    J(\theta_0,\theta_1)=\frac{1}{2m}\sum\limits_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^{2}
+    $$
 - **目标**
-    $$\underset{\theta_0,\theta_1}\text{minimize}\ J(\theta_0,\theta_1)$$
+    $$
+    \underset{\theta_0,\theta_1}{\text{minimize}}\ J(\theta_0,\theta_1)
+    $$
     ><font size=2>**说明**：此处之所以是$\frac{1}{2m}$，原因是在按梯度下降法求最小值点时刚好可以把平方的2约掉，从而变为$\frac{1}{m}$，且不论是$\frac{1}{m}$，还是$\frac{1}{2m}$，最后计算得出的$\theta_0$、$\theta_1$都是一样的。</font>
 #### 2.2 梯度下降法
 - **算法描述**
-    $$\begin{array}{lc} 
+    $$
+    \begin{array}{lc} 
         \text{repeat until convergence}\ \{\\
         \qquad \theta_j:=\theta_j-\alpha\frac{\partial}{\partial \theta_j}J(\theta_0, \theta_1)\qquad (\text{for}\ j=0\ \text{and}\ j = 1 \\
         \}
-    \end{array}$$
+    \end{array}
+    $$
     > <font size=2>**说明**：此处的“:=”表示赋值运算。</font>
 - **同步更新**
-    $$\begin{array}{l} 
+    $$
+    \begin{array}{l} 
         temp0:=\theta_0-\alpha\frac{\partial}{\partial \theta_0}J(\theta_0, \theta_1) \\ 
         temp1:=\theta_1-\alpha\frac{\partial}{\partial \theta_1}J(\theta_0, \theta_1) \\ 
         \theta_0:=temp0 \\ 
         \theta_1:=temp1
-    \end{array}$$
+    \end{array}
+    $$
 - **$J(\theta_0, \theta_1)$的偏导数**
-    $$\frac{\partial}{\partial \theta_0}J(\theta_0,\theta_1)=\frac{1}{m}\sum\limits_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})$$
+    $$
+    \frac{\partial}{\partial \theta_0}J(\theta_0,\theta_1)=\frac{1}{m}\sum\limits_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})
+    $$
 
-    $$\frac{\partial}{\partial \theta_1}J(\theta_0,\theta_1)=\frac{1}{m}\sum\limits_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})\cdot x^{(i)}$$
+    $$
+    \frac{\partial}{\partial \theta_1}J(\theta_0,\theta_1)=\frac{1}{m}\sum\limits_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})\cdot x^{(i)}
+    $$
 ### 3 线性代数回顾
 #### 3.1 需要用到的线性代数基础知识
 ><font size=2>**说明**：本部分回顾的线代都很基础，没有涉及深入的线性代数知识，且学习本课程理解基本原理需要这些知识足以，但对于个别公式推导需要的线性代数知识则超过本部分复习的基础知识，需要课下自行学习，比如矩阵的求导的知识。</font>
@@ -78,14 +94,21 @@
 ### 5 多变量线性回归
 #### 5.1 多元梯度下降法
 - **假设函数**
-    $$h_\theta(x)=\theta^{T}x=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdot\cdot\cdot+\theta_nx_n$$
+    $$
+    h_\theta(x)=\theta^{T}x=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdot\cdot\cdot+\theta_nx_n
+    $$
 - **参数**
-    $$\theta_0,\theta_1,\ldots,\theta_n$$
+    $$
+    \theta_0,\theta_1,\ldots,\theta_n
+    $$
 - **代价函数**
-    $$J(\theta_0,\theta_1,\ldots,\theta_n)=\frac{1}{2m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^{2}$$
+    $$
+    J(\theta_0,\theta_1,\ldots,\theta_n)=\frac{1}{2m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^{2}
+    $$
     ><font size=2>**注意**：上式中的$x^{(i)}$和$y^{(i)}$表示的是第$i$个向量，其中每个$x^{(i)}$向量含有$n$+1个维度。</font>
 - **梯度下降算法(n≥1)**
-    $$\begin{array}{l}
+    $$
+    \begin{array}{l}
         \text{Repeat}\ \{\\
         \qquad \theta_j:=\theta_j-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{j}^{(i)}\ \ \ (\text{for}\ j=0,1,2,\ldots,n)\\
         \}\\
@@ -94,7 +117,8 @@
         \theta_1:=\theta_1-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{1}^{(i)}\\
         \theta_2:=\theta_2-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{2}^{(i)}\\
         \ldots
-    \end{array}$$
+    \end{array}
+    $$
     ><font size=2>**注意A**：$x_{j}^{(i)}$表示的是第$i$个向量中的第$j$维的值；</br> **注意B**：$\frac{\partial}{\partial \theta_j}J(\theta_0,\theta_1,\ldots,\theta_n)=\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{j}^{(i)}$。</font>
 #### 5.2 梯度下降法实用技巧A——特征缩放
 - **目的**
@@ -112,17 +136,24 @@
   - 通过自动检测函数，设定合适的阈值$\varepsilon$，代价函数的变化值小于该阈值则收敛，但该方法很难确定合适的阈值$\varepsilon$;
 - **学习率的选择**
   - 一般按以下值从小到大一次尝试，尝试过程中按10倍上个学习率进行迭代；
-  $$\ldots,0.001,0.01,0.1,1,\ldots$$
+  $$
+  \ldots,0.001,0.01,0.1,1,\ldots
+  $$
   - **达叔的选择**是按3倍上个迭代的学习率进行迭代；
-  $$\ldots,0.001,0.003,0.01,0.03,0.1,0.3,1,\ldots$$
+  $$
+  \ldots,0.001,0.003,0.01,0.03,0.1,0.3,1,\ldots
+  $$
 #### 5.4 正规方程法(区别于迭代方法的直接解法)
 - **前置条件**
   - **$m$个样本**
-  $$(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),(x^{(3)},y^{(3)}),\ldots,(x^{(m)},y^{(m)})$$
+  $$
+  (x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),(x^{(3)},y^{(3)}),\ldots,(x^{(m)},y^{(m)})
+  $$
   - **$n$个特征**
   ><font size=2>**说明**：每个$x^{(i)}$向量均含有$n$+1个维度，其中$x_{0}^{(i)}$为常数$1$，其余$n$个维度则表示$n$个特征的样本值。</font>
 
-  $$x^{(i)}=
+  $$
+  x^{(i)}=
   \left[ \begin{array}{c}
       x_{0}^{(i)}\\
       x_{1}^{(i)}\\
@@ -130,11 +161,13 @@
       \vdots\\
       x_{n}^{(i)}
   \end{array} \right]
-  \in \mathbb{R}^{n+1}$$
+  \in \mathbb{R}^{n+1}
+  $$
 - **构建矩阵$X$和向量$y$**
     ><font size=2>**注意**：矩阵$X$为$m\times(n+1)$的矩阵，$y$为$m$维向量。</font>
 
-  $$X=
+  $$
+  X=
   \left[ \begin{array}{c}
       (x^{(1)})^{T}\\
       (x^{(2)})^{T}\\
@@ -150,19 +183,24 @@
       y^{(3)}\\
       \vdots\\
       y^{(m)}
-  \end{array} \right]$$
+  \end{array} \right]
+  $$
 - **利用正规方程法计算$\theta$向量**
   - **参数$\theta$向量**
-  $$\theta=
+  $$
+  \theta=
   \left[ \begin{array}{c}
       \theta_0\\
       \theta_1\\
       \theta_2\\
       \vdots\\
       \theta_n
-  \end{array} \right]$$
+  \end{array} \right]
+  $$
   - **正规方程计算参数$\theta$向量**
-  $$\theta=(X^{T}X)^{-1}X^{T}y$$
+  $$
+  \theta=(X^{T}X)^{-1}X^{T}y
+  $$
   - **Octave实现正规方程的计算语句**
     ```matlab
     pinv (X'*X)*X'*y
@@ -1069,15 +1107,18 @@
       ```
 #### 6.6 矢量
 - **梯度下降的同步更新实现**
-$$\begin{array}{c}
+$$
+\begin{array}{c}
   \theta_0:=\theta_0-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{0}^{(i)}\\
   \theta_1:=\theta_1-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{1}^{(i)}\\
   \theta_2:=\theta_2-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{2}^{(i)}\\
   \ldots\\
   \theta_n:=\theta_n-\alpha\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{n}^{(i)}
-\end{array}$$
+\end{array}
+$$
 - **矢量化参数说明**
-$$\theta=
+$$
+\theta=
 \left[ \begin{array}{c}
   \theta_0\\
   \theta_1\\
@@ -1093,9 +1134,11 @@ $$\theta=
   \vdots\\
   \delta_n
 \end{array} \right]; \ 
-\delta_j=\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{j}^{(i)},\ (j=0,1,\ldots,n)$$
+\delta_j=\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{j}^{(i)},\ (j=0,1,\ldots,n)
+$$
 - **矢量化的实现**
-$$\theta:=\theta-\alpha\delta\ \Rightarrow\ 
+$$
+\theta:=\theta-\alpha\delta\ \Rightarrow\ 
 \left[ \begin{array}{c}
   \theta_0\\
   \theta_1\\
@@ -1116,34 +1159,40 @@ $$\theta:=\theta-\alpha\delta\ \Rightarrow\
   \delta_2\\
   \vdots\\
   \delta_n
-\end{array} \right]$$
+\end{array} \right]
+$$
 ### 7 Logistic 回归
 #### 7.1 分类
 - Logistic 回归处理的是预测的变量是离散的情况下的分类；
 - Logistic 回归的预测值介于0到1之间；
 #### 7.2 假设陈述
 - **Logistic 回规模型**
-$$\left. \begin{array}{r}
+$$
+\left. \begin{array}{r}
   h_{\theta}(x)=\theta^{T}x\\
   g(z)=\frac{1}{1+e^{-z}}
 \end{array}  
-\right\} \xRightarrow{z=\theta^{T}x}
-h_{\theta}(x)=\frac{1}{1+e^{-\theta^{T}x}}$$
+\right\} \Rightarrow
+h_{\theta}(x)=\frac{1}{1+e^{-\theta^{T}x}}
+$$
 - **对预测值即假设输出的说明**
   - 首先假设样本值中$y$只有0和1两个取值；
   - $h_{\theta}(x)$表示对于输入的$x$，$y=1$的概率；
   - 示例：
     - 示例内容
-    $$If\ x=\left[
+    $$
+    If\ x=\left[
     \begin{array}{c}
       x_0 \\ x_1 
     \end{array} \right]=\left[
     \begin{array}{c}
       1 \\ \text{tumorSize}
-    \end{array} \right],\ h_{\theta}(x)=0.7$$
+    \end{array} \right],\ h_{\theta}(x)=0.7
+    $$
     - 示例说明：示例中的$h_{\theta}(x)$等于0.7表示该患者的肿瘤是一个恶性肿瘤的概率为70%；
     - 针对此类示例，有一下拓展：
-    $$\begin{array}{l}
+    $$
+    \begin{array}{l}
         h_{\theta}(x)=P(y=1|x;\theta) \\
         y=0\ or\ y=0 \Rightarrow \left\{
         \begin{array}{l}
@@ -1158,20 +1207,27 @@ h_{\theta}(x)=\frac{1}{1+e^{-\theta^{T}x}}$$
 - 一旦假设函数有确定参数，就可完全确定决策边界，不一定需要通过绘制训练集来确定决策边界；
 #### 7.4 代价函数
 - **训练集**
-$$\{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),\ldots,(x^{(m)},y^{(m)})\}$$
+$$
+\{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),\ldots,(x^{(m)},y^{(m)})\}
+$$
 - **$m$个样本**
-$$x \in \left[
+$$
+x \in \left[
   \begin{array}{c}
     x_0 \\ x_1 \\ x_2 \\ \vdots \\ x_n
   \end{array} \right]
-  \in \mathbb{R}^{n+1};\ 
-  x_0=1,\ y \in \{ 0,1 \}$$
+\in \mathbb{R}^{n+1};\ 
+x_0=1,\ y \in \{ 0,1 \}
+$$
 - **假设函数**
-$$h_\theta(x)=\frac{1}{1+e^{-\theta^{T}x}}$$
+$$
+h_\theta(x)=\frac{1}{1+e^{-\theta^{T}x}}
+$$
 - **Logistic 回归代价函数**
   >**<font size=2>说明</font>**：<font size=2>在Octave中，计算自然对数为log()函数。</font>
 
-$$\begin{array}{l}
+$$
+\begin{array}{l}
   J(\theta)=\frac{1}{m}\sum\limits_{i=1}^{m}Cost(h_\theta(x^{(i)}),y^{(i)})\\
   Cost(h_\theta(x),y)=\left\{ 
     \begin{array}{r}
@@ -1179,12 +1235,16 @@ $$\begin{array}{l}
       -\ln(1-h_\theta(x)) & if\ y=0
     \end{array}\right.\\
     \text{Note:\ y=0\ or\ 1\ always.} 
-\end{array}$$
+\end{array}
+$$
 - **简化代价函数和梯度下降**
   - 简化代价函数：该代价函数的采用极大似然估计得到；
-  $$Cost(h_\theta(x),y)=-y\ln(h_\theta(x))-(1-y)\ln(1-h_\theta(x))$$
+  $$
+  Cost(h_\theta(x),y)=-y\ln(h_\theta(x))-(1-y)\ln(1-h_\theta(x))
+  $$
   - 梯度下降
-  $$\begin{array}{l}
+  $$
+  \begin{array}{l}
     \textsf{Gradient Descent:}\\
     \qquad J(\theta)=-\frac{1}{m}\sum\limits_{i=1}^{m}[y^{(i)}\ln(h_\theta(x^{(i)}))+(1-y^{(i)})\ln(1-h_\theta(x^{(i)}))]\\ \\
     \textsf{Want}\ \text{min}_\theta\ J(\theta):\\
@@ -1193,7 +1253,8 @@ $$\begin{array}{l}
     \quad \}\\ \\
     \textsf{Besides:}\\
     \qquad \frac{\partial}{\partial{\theta_j}}J(\theta)=\frac{1}{m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_{j}^{(i)}
-  \end{array}$$
+  \end{array}
+  $$
 #### 7.5 高级优化
 - **给定$\theta$，需要编程计算以下两项**
   - $J(\theta)$
@@ -1211,14 +1272,16 @@ $$\begin{array}{l}
     - 相比梯度下降更复杂；
 - **示例代码**
   - 示例
-    $$\begin{array}{l}
+    $$
+    \begin{array}{l}
       \theta=\left[ \begin{array}{c}
         \theta_1 \\ \theta_2
       \end{array} \right] \\
       J(\theta)=(\theta_1-5)^{2}+(\theta_2)^{2} \\
       \frac{\partial}{\partial{\theta_1}}J(\theta)=2(\theta_1-5)\\
       \frac{\partial}{\partial{\theta_2}}J(\theta)=2(\theta_2-5)
-    \end{array}$$
+    \end{array}
+    $$
   - 代码表示
     ```matlab
     % costFunction.m
