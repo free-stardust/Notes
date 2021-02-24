@@ -3,14 +3,24 @@
 ## <font color=#A0B000>1 科学类</font>
 ### <font color=#A0B000>1.1 宇宙时空之旅纪录片</font>
 #### <font color=#A0B000>1.1.1 时空奥德赛</font>
-- <font color=cyan>Science works on the frontier between knowledge and ignorance, we're not afraid to admit what we don't know. There's no shame in that. The only shame is to pretend that we have all the answers.</font></br><font color=orange>科学在知识与无知的边界探索，我们不怕承认自己不知道。不必对此感到羞愧。假装掌握一切答案才是唯一的羞愧。</font>
-- <font color=cyan>Science needs the light of free expression to flourish. It depends on the fearless questioning of authority, the open exchange of ideas.</font></br><font color=orange>科学需要自由表达的空间才能蓬勃发展。科学的进步取决于对权威的无畏质疑，取决于理念的自由交流。</font>
-- <font color=cyan>Sparks of curiousity in the writings of Mo Tze and his disciples were effectively stomped out.</font></br><font color=orange>墨子及其弟子们的著作中对科学的好奇之光被迅速踩灭。</font>
-- <font color=cyan>Nothing is too wonderful to be true, if it be consistent with the laws of nature.——Faraday</font></br><font color=orange>世界上的一切都有可能如此美好，主要它符合自然规律。——法拉第</font>
-- <font color=cyan>It'a okay not know all the answers. It's better to admit out ignorance than to believe answers that might be wrong. Pretending to know everything closes the door to finding out what's really there.</font></br><font color=orange>不知道所有的答案并不是什么坏事。与其相信可能错误的答案不如直接承认我们的无知。不懂装懂的行为只会关闭探索事实真相的大门。</font>
-- <font color=cyan>Thinking for yourself. Question yourself. Dont't believe anything just because you want to. Believing something doesn't make it so.Test ideas by the evidence gained from observation and expriment. If a favorite idea fails a well-designed test, it's wrong. Follow the evidence, wherever it leads. If you have no evidece, reserve judgement. And perhaps the most important rule of all...remember, you could be wrong.</font></br><font color=orange>独立自主地思考。质疑自己。不要仅仅去相信自己愿意相信的。你相信的并不一定就是真理。用观察和实验所获得的证据来检验真理。广为接受的理论如果不能通过恰当设计的实验，它就是错的。跟随证据的指引，无论它将你引向何方。如果你没有证据，就不要妄加评判。或许其中最重要的原则是...记住，你可能犯错。</font>
-- <font color=cyan>Science is a way to keep from fooling ourselves and each other.</font></br><font color=orange>科学是防止我们欺骗自己和欺骗他人的一种方法。</font>
-- <font color=cyan>We have misused science, just as we have every other tool at our disposal，and that's why we can't afford to leave it in the hands of a powerful few. The more science belongs to all of us, the less likely is to be misued.</font></br><font color=orange>我们曾误用科学，就像我们曾误用过手中的其他工具一样，这也是为什么我们不能让科学只掌握在少数权威的手中。科学只有越多地属于人民大众，才越不会被误用。</font>
+- <font color=cyan>Science works on the frontier between knowledge and ignorance, we're not afraid to admit what we don't know. There's no shame in that. The only shame is to pretend that we have all the answers.</font>
+<font color=orange>科学在知识与无知的边界探索，我们不怕承认自己不知道。不必对此感到羞愧。假装掌握一切答案才是唯一的羞愧。</font>
+- <font color=cyan>Science needs the light of free expression to flourish. It depends on the fearless questioning of authority, the open exchange of ideas.</font>
+<font color=orange>科学需要自由表达的空间才能蓬勃发展。科学的进步取决于对权威的无畏质疑，取决于理念的自由交流。</font>
+- <font color=cyan>Sparks of curiousity in the writings of Mo Tze and his disciples were effectively stomped out.</font>
+<font color=orange>墨子及其弟子们的著作中对科学的好奇之光被迅速踩灭。</font>
+- <font color=cyan>Nothing is too wonderful to be true, if it be consistent with the laws of nature.——Faraday</font>
+<font color=orange>世界上的一切都有可能如此美好，主要它符合自然规律。——法拉第</font>
+- <font color=cyan>It'a okay not know all the answers. It's better to admit out ignorance than to believe answers that might be wrong. Pretending to know everything closes the door to finding out what's really there.</font>  
+<font color=orange>不知道所有的答案并不是什么坏事。与其相信可能错误的答案不如直接承认我们的无知。不懂装懂的行为只会关闭探索事实真相的大门。</font>
+- <font color=cyan>Thinking for yourself. Question yourself. Dont't believe anything just because you want to. Believing something doesn't make it so.Test ideas by the evidence gained from observation and expriment. If a favorite idea fails a well-designed test, it's wrong. Follow the evidence, wherever it leads. If you have no evidece, reserve judgement. And perhaps the most important rule of all...remember, you could be wrong.</font>
+<font color=orange>独立自主地思考。质疑自己。不要仅仅去相信自己愿意相信的。你相信的并不一定就是真理。用观察和实验所获得的证据来检验真理。广为接受的理论如果不能通过恰当设计的实验，它就是错的。跟随证据的指引，无论它将你引向何方。如果你没有证据，就不要妄加评判。或许其中最重要的原则是...记住，你可能犯错。</font>
+- <font color=cyan>Science is a way to keep from fooling ourselves and each other.</font>
+<font color=orange>科学是防止我们欺骗自己和欺骗他人的一种方法。</font>
+- <font color=cyan>We have misused science, just as we have every other tool at our disposal，and that's why we can't afford to leave it in the hands of a powerful few. The more science belongs to all of us, the less likely is to be misued.</font>
+<font color=orange>我们曾误用科学，就像我们曾误用过手中的其他工具一样，这也是为什么我们不能让科学只掌握在少数权威的手中。科学只有越多地属于人民大众，才越不会被误用。</font>
 - #### <font color=#A0B000>1.1.2 未知的世界</font>
-- <font color=cyan>Our Ship of the Imagination is propelled by twin engines of skepticism and wonder. It's guided by the simple set of rules that define science and make it so powerful.</font></br><font color=orange>我们的想象之船有一对船桨，一边是怀疑，一边是好奇。它遵循一套简单的规则，这些规则定义了科学，这使它如此强大。</font>
-- <font color=cyan>Test ideas by experiment and observation. Build on those ideas that pass the test. Reject the ones that fail. Follow the evidence wherever it leads and question everything. Take these rules to heart, and the cosmos is yours.</font></br><font color=orange>通过实验和观测来检验想法。接受能经受事实检验的理论。拒绝与事实相悖的。无论证据指向何方，跟着它走永远不要停止发问。把这些规则牢记在心，宇宙就是你的。</font>
+- <font color=cyan>Our Ship of the Imagination is propelled by twin engines of skepticism and wonder. It's guided by the simple set of rules that define science and make it so powerful.</font>
+<font color=orange>我们的想象之船有一对船桨，一边是怀疑，一边是好奇。它遵循一套简单的规则，这些规则定义了科学，这使它如此强大。</font>
+- <font color=cyan>Test ideas by experiment and observation. Build on those ideas that pass the test. Reject the ones that fail. Follow the evidence wherever it leads and question everything. Take these rules to heart, and the cosmos is yours.</font>
+<font color=orange>通过实验和观测来检验想法。接受能经受事实检验的理论。拒绝与事实相悖的。无论证据指向何方，跟着它走永远不要停止发问。把这些规则牢记在心，宇宙就是你的。</font>
