@@ -11,12 +11,12 @@
   - **注意**：此处的方括号[]在实际使用时不需要打出，此处只是作为一个标记符号使用，下同；
 #### 1.1.2 路径切换
 - 初次打开命令提示符窗口会显示为以下样式；
-```shell
-Microsoft Windows [版本 xx.x.xxxxx.xxx]
-(c) 2020 Microsoft Corporation. 保留所有权利。
-
-C:\Users\xxx>
-```
+  ```shell
+  Microsoft Windows [版本 xx.x.xxxxx.xxx]
+  (c) 2020 Microsoft Corporation. 保留所有权利。
+  
+  C:\Users\xxx>
+  ```
 - `dir /b`查看当前目录下的文件；
 - `dir`命令作用是列出当前路径下的文件；
 - `/b`属性是只列出各个文件的名称，而不包含各个文件的详细信息；
