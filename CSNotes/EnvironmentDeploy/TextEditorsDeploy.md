@@ -211,6 +211,7 @@ module.exports = {
 #### 1.2.7 C/C++编译环境配置
 >**说明**：此处的配置有官方文档，只不过是全英文的，详情[参见官方配置文档](https://code.visualstudio.com/docs/cpp/config-mingw)。
 - **配置前注意**：由于VSCode只是一个编辑器，如果是编写的单个C/C++文件进行运行是可以的，但是如果多个文件进行link，则很不方便，需要自己写Makefile，嫌麻烦的话还不如用专门的C/C++开发工具，所以配置者环境仅限于独立文件练习或者文件编辑；
+- 配合Makefile使用的案例参考这篇博文：[使用VsCode+Makefile开发C/C++](https://www.jianshu.com/p/f0b9704a787d)；
 - 安装插件`C/C++`；
 - 配置`mingw64`环境；
   - 下载`mingw64`，下载地址[https://sourceforge.net/projects/mingw-w64/files/](https://sourceforge.net/projects/mingw-w64/files/)；
