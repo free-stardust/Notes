@@ -210,6 +210,7 @@ module.exports = {
 - **小建议**：笔者建议可以刷题的工作路径，可以设置为一个固定的GitHub项目文件夹，这样还能远端备份自己的题解，顺便进行GitHub打卡，一举两得；
 #### 1.2.7 C/C++编译环境配置
 >**说明**：此处的配置有官方文档，只不过是全英文的，详情[参见官方配置文档](https://code.visualstudio.com/docs/cpp/config-mingw)。
+- **配置前注意**：由于VSCode只是一个编辑器，如果是编写的单个C/C++文件进行运行是可以的，但是如果多个文件进行link，则很不方便，不如用专门的C/C++开发工具，所以配置者环境仅限于独立文件练习或者文件编辑；
 - 安装插件`C/C++`；
 - 配置`mingw64`环境；
   - 下载`mingw64`，下载地址[https://sourceforge.net/projects/mingw-w64/files/](https://sourceforge.net/projects/mingw-w64/files/)；
