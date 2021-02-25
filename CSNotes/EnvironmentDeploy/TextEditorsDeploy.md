@@ -207,6 +207,95 @@ module.exports = {
 - VSCode刷题的好处就是每道题目都可以显示通过率，而且还会显示哪个公司的题目；
 - 写完题解后，最下面有个`Submit | Test`便是对应web端的提交和执行测试；
 - **小建议**：笔者建议可以刷题的工作路径，可以设置为一个固定的GitHub项目文件夹，这样还能远端备份自己的题解，顺便进行GitHub打卡，一举两得；
+#### 1.2.7 C/C++编译环境配置
+- 安装插件`C/C++`；
+- 配置`mingw64`环境；
+  - 下载`mingw64`，下载地址[https://sourceforge.net/projects/mingw-w64/files/](https://sourceforge.net/projects/mingw-w64/files/)；
+  - 进入下载地址**不要**点击`Download Lasted Version`下载，下滑，找到最新版，下载`x86_64-posix-seh`；
+  - 下载之后是一个7z压缩包，另外，该网站有时候下载很慢；
+  - 选择一个合适的位置解压，由于是绿色版，解压后配置环境变量即可使用，笔者的解压目录是`C:\Enviornments\mingw64\`；
+  - 将该目录`C:\Enviornments\mingw64\bin`配置到环境变量即可；
+  - 配置成功后，`Win+R`打开控制台窗口输入`gcc`，如果出现以下内容，说明配置成功；
+    ```shell
+    Microsoft Windows [版本 xx.x.xxxxx.xxx]
+    (c) 2020 Microsoft Corporation. 保留所有权利。
+
+    C:\Users\xxx>gcc
+    gcc: fatal error: no input files
+    compilation terminated.
+
+    C:\Users\xxx>
+    ```
+- VSCode配置
+  - 按自己喜好新近一个空文件夹，作为C/C++项目目录，笔者新建的文件夹为`D:\Projects\VSCcodeProjects\`；
+  - 在当前目录新建文件夹`CProjects`，并在该文件夹中新建`helloworld.c`或者`helloworld.cpp`文件，添加测试内容；
+    ```c
+    #include <stdio.h>
+    #include <windows.h>
+
+    int main() {
+        printf("Hello World!\n");
+        system("pause");
+        return 0;
+    }
+    ```
+  - 点击侧边栏那个🐞图标，进入调试模式，在弹出的控制台窗口选择`C++(GDB/LLDB)`，之后再选择g++.exe，就会在`D:\Projects\VSCcodeProjects\`目录下生成`launch.json`配置文件，按如下内容修改相关配置；
+		```json
+		{
+    	"version": "0.2.0",
+    	"configurations": [
+    	 	 {
+    	      	"name": "(gdb) build",
+    	      	"type": "cppdbg",
+    	      	"request": "launch",
+    	      	"program": "${fileDirname}\\${fileBasenameNoExtension}.exe", // 修改默认值
+    	      	"args": [],
+    	      	"stopAtEntry": false,
+    	      	"cwd": "${workspaceFolder}",
+    	      	"environment": [],
+    	      	"externalConsole": true, // 修改默认的"console": "externalTerminal"
+    	      	"MIMode": "gdb",
+    	      	"miDebuggerPath": "C:\\Enviornments\\mingw64\\bin\\gdb.exe", // 按实际安装位置修改
+    	      	"setupCommands": [
+    	          	{
+    	              	"description": "为 gdb 启用整齐打印",
+    	              	"text": "-enable-pretty-printing",
+    	              	"ignoreFailures": true
+    	          	}
+    	      	],
+    	      	"preLaunchTask": "g++" // 这里默认没有，需要添加，名称自己定义就好
+    	  	}
+    	]
+		}
+		```
+	- 返回`helloworld.c`或者`hellow.cpp`文件，点击F5进行调试，这时会弹出窗口提示找不到任务`g++`，选择**配置任务**，然后弹出的小窗口候选选择`C/C++: cl.exe 生成活动文件`，便会自动生成`task.json`文件，之后按如下内容进行修改；
+		```json
+		{
+			"version": "2.0.0",
+			"tasks": [
+				{
+					"type": "cppbuild",
+					"label": "g++", // 名称和launch.json文件中的"preLaunchTask":"g++"名称一致
+					"command": "C:\\Enviornments\\mingw64\\bin\\g++.exe", // 按实际安装情况修改
+					"args": [
+						"-g",	// 修改默认值为-g，此为g++编译命令
+						"-o",	// 修改默认值为-o，此为g++编译命令
+						"${fileDirname}\\${fileBasenameNoExtension}.exe",
+						"${file}",
+					],
+					"options": {
+						"cwd": "C:\\Enviornments\\mingw64\\bin" // 按实际安装情况修改
+					},
+					"problemMatcher": [
+						"$msCompile"
+					],
+					"group": "build",
+					"detail": "Complier: g++.exe"
+				}
+			]
+		}
+		```
+	- 自此，VSCode的C/C++编译环境配置完毕，另外如果想了解g++编译命令，请参考博主`步孤天`的文章：[g++编译总结](https://www.cnblogs.com/bugutian/p/4490902.html)；
 ## 2 Sublime Text安装与配置
 ### 2.1 安装与破解
 #### 2.1.1 安装版与绿色版
