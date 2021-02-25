@@ -283,6 +283,11 @@ module.exports = {
             "${file}",
 						"-o",	// 修改默认值为-o，此为g++编译命令
 						"${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "-m64",  // 不知为何有时会生成16位程序而无法运行，此条可强制生成64位的
+            "-Wall", // 开启额外警告
+            "-static-libgcc",     // 静态链接libgcc，一般都会加上
+            "-fexec-charset=GBK", // 生成的程序使用GBK编码，不加会导致Win下输出中文乱码；繁体改成BIG5
+            "-D__USE_MINGW_ANSI_STDIO", // 用MinGW写C时留着，否则不需要，用于支持printf的%zd和%Lf等
 					],
 					"options": {
 						"cwd": "C:\\Enviornments\\mingw64\\bin" // 按实际安装情况修改
