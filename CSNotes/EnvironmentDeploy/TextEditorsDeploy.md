@@ -280,9 +280,9 @@ module.exports = {
 					"command": "C:\\Enviornments\\mingw64\\bin\\g++.exe", // 按实际安装情况修改
 					"args": [
 						"-g",	// 修改默认值为-g，此为g++编译命令
+            "${file}",
 						"-o",	// 修改默认值为-o，此为g++编译命令
 						"${fileDirname}\\${fileBasenameNoExtension}.exe",
-						"${file}",
 					],
 					"options": {
 						"cwd": "C:\\Enviornments\\mingw64\\bin" // 按实际安装情况修改
