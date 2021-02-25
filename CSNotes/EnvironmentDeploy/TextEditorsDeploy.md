@@ -232,7 +232,7 @@ module.exports = {
     ```
 - VSCode配置
   - 按自己喜好新近一个空文件夹，作为C/C++项目目录，笔者新建的文件夹为`D:\Projects\VSCcodeProjects\`；
-  - 在当前目录新建文件夹`CProjects`，并在该文件夹中新建`helloworld.c`或者`helloworld.cpp`文件，添加测试内容；
+  - 在当前目录新建文件夹`helloword`，并在该文件夹中新建`helloworld.c`或者`helloworld.cpp`文件，添加测试内容；
     ```c
     #include <stdio.h>
     #include <windows.h>
@@ -257,7 +257,7 @@ module.exports = {
     	      	"stopAtEntry": false,
     	      	"cwd": "${workspaceFolder}",
     	      	"environment": [],
-    	      	"externalConsole": true, // 修改默认的"console": "externalTerminal"
+    	      	"externalConsole": true, // 修改默认值，独立窗口输出，false的话则会在VSCode输出窗口输出
     	      	"MIMode": "gdb",
     	      	"miDebuggerPath": "C:\\Enviornments\\mingw64\\bin\\gdb.exe", // 按实际安装位置修改
     	      	"setupCommands": [
