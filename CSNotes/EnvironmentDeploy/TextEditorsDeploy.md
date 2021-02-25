@@ -209,6 +209,7 @@ module.exports = {
 - 自此，LeetCode刷题环境配置完毕，另外为了高校刷题，也可以配合某大厂大佬的刷题笔记进行刷题，笔记地址：[LeetCode Cookbook](https://books.halfrost.com/leetcode/)；
 - **小建议**：笔者建议可以刷题的工作路径，可以设置为一个固定的GitHub项目文件夹，这样还能远端备份自己的题解，顺便进行GitHub打卡，一举两得；
 #### 1.2.7 C/C++编译环境配置
+>**说明**：此处的配置有官方文档，只不过是全英文的，详情[参见官方配置文档](https://code.visualstudio.com/docs/cpp/config-mingw)。
 - 安装插件`C/C++`；
 - 配置`mingw64`环境；
   - 下载`mingw64`，下载地址[https://sourceforge.net/projects/mingw-w64/files/](https://sourceforge.net/projects/mingw-w64/files/)；
