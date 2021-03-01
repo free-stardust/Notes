@@ -2390,7 +2390,7 @@ OK
 #########################################################
 
 # 更新指令的使用先看这里
-重要说明：对于以下的更新指令，在修改源为国内源后，conda update conda可以达到更新所有包的目的，但conda update --all则会让所有包返回旧版；
+重要说明：对于以下的更新指令，在修改源为国内源后，conda update conda可以达到更新所有包的目的，但conda update --all有时则会让所有包返回旧版，不过可以更新python版本；
 
 # 更新conda
 conda update conda
@@ -2612,5 +2612,5 @@ conda clean -p
 conda clean -t      
 
 # 删除所有的安装包及cache(索引缓存、锁定文件、未使用过的包和tar包)
-conda clean -y -all 
+conda clean -y -a 
 ```
