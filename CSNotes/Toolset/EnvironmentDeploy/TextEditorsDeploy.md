@@ -29,7 +29,7 @@
 - Typora软件下载地址：[点击下载](https://www.typora.io/)；
 - Typora主题下载地址1，官网下载地址，下载很慢，[点击下载](https://theme.typora.io/)；
 - Typora主题下载地址2，下载快，但是只有部分在Media中，[点击下载](https://github.com/typora/typora-theme-gallery)；
-- Typera主题配置(笔者预览通常选择Mo-Dark，导出PDF选择Mo)；
+- Typera主题配置(笔者预览通常选择Mo-Dark，导出PDF选择Mo，另外以下字体及大小自己喜好修改即可)；
 ```css
 /* 
  * 添加主题路径：C:\Users\XXX\AppData\Roaming\Typora\themes
