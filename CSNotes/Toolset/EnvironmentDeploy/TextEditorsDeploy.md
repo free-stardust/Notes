@@ -29,6 +29,7 @@
 - Typora软件下载地址：[点击下载](https://www.typora.io/)；
 - Typora主题下载地址1，官网下载地址，下载很慢，[点击下载](https://theme.typora.io/)；
 - Typora主题下载地址2，下载快，但是只有部分在Media中，[点击下载](https://github.com/typora/typora-theme-gallery)；
+- Typora主题下载地址2，笔者下载的部分主题备份，[点击下载](https://github.com/free-stardust/Notes/blob/main/CSNotes/Toolset/EnvironmentDeploy/assets/SelectThemes.zip)；
 - Typera主题配置(笔者预览通常选择Mo-Dark，导出PDF选择Mo，另外以下字体及大小自己喜好修改即可)；
 ```css
 /* 
@@ -206,7 +207,7 @@ module.exports = {
   - 以上设置完毕，点击侧边栏LeetCode图标，点击那个小地球图标，进行登录，稍等一下，便可开始刷题；
 - VSCode刷题的好处就是每道题目都可以显示通过率，而且还会显示哪个公司的题目；
 - 写完题解后，最下面有个`Submit | Test`便是对应web端的提交和执行测试；
-- 自此，LeetCode刷题环境配置完毕，另外为了高校刷题，也可以配合某大厂大佬的刷题笔记进行刷题，笔记地址：[LeetCode Cookbook](https://books.halfrost.com/leetcode/)；
+- 自此，LeetCode刷题环境配置完毕，另外为了高效刷题，也可以配合某大厂大佬的刷题笔记进行刷题，笔记地址：[LeetCode Cookbook](https://books.halfrost.com/leetcode/)；
 - **小建议**：笔者建议可以刷题的工作路径，可以设置为一个固定的GitHub项目文件夹，这样还能远端备份自己的题解，顺便进行GitHub打卡，一举两得；
 #### 1.2.7 C/C++编译环境配置
 >**说明**：此处的配置有官方文档，只不过是全英文的，详情[参见官方配置文档](https://code.visualstudio.com/docs/cpp/config-mingw)。
