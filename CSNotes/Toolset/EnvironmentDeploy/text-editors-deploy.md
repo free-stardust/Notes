@@ -384,39 +384,63 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 - 打开后在`Default(Windows).sublime-keymap`文件中添加以下内容；
 ```json
 [
-  { "keys": ["ctrl+shift+c"], "command": "copy_path" }
-  // edge
-  { "keys": ["f1"], "command": "side_bar_files_open_with",
-      "args": {
-          "paths": [],
-          "application": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
-          "extensions":".*", // 匹配任何文件类型
-      }
-  }
-  // chrome
-  { "keys": ["f2"], "command": "side_bar_files_open_with",
-      "args": {
-          "paths": [],
-          "application": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
-          "extensions":".*"
-      }
-  }
-  // firefox
-  { "keys": ["f3"], "command": "side_bar_files_open_with",
-      "args": {
-          "paths": [],
-          "application": "C:/Program Files/Mozilla Firefox/firefox.exe",
-          "extensions":".*"
-      }
-   }
-  // ie
-  { "keys": ["f4"], "command": "side_bar_files_open_with",
-      "args": {
-          "paths": [],
-          "application": "C:/Program Files/Internet Explorer/iexplore.exe",
-          "extensions":".*"
-      }
-  }
+    { 
+        "keys": ["ctrl+shift+c"], 
+        "command": "copy_path" 
+    },
+
+    // edge
+    { 
+        "keys": ["f1"], 
+        "command": "side_bar_files_open_with",
+        "args": {
+            "paths": [],
+            "application": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+            "extensions":".*", // 匹配任何文件类型
+        }
+    },
+
+    // chrome
+    { 
+        "keys": ["f2"], 
+        "command": "side_bar_files_open_with",
+        "args": {
+            "paths": [],
+            "application": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+            "extensions":".*"
+        }
+    },
+
+    // firefox
+    { 
+        "keys": ["f3"], 
+        "command": "side_bar_files_open_with",
+        "args": {
+            "paths": [],
+            "application": "C:/Program Files/Mozilla Firefox/firefox.exe",
+            "extensions":".*"
+        }
+     },
+
+    // ie
+    { 
+        "keys": ["f4"], 
+        "command": "side_bar_files_open_with",
+        "args": {
+            "paths": [],
+            "application": "C:/Program Files/Internet Explorer/iexplore.exe",
+            "extensions":".*"
+        }
+    },
+    
+    // 格式化快捷键
+    {   
+        "keys": ["ctrl+shift+f"], 
+        "command": "reindent" , 
+        "args": {
+            "single_line": false
+        }
+    },
 ]
 ```
 #### 2.2.4 其他配置
