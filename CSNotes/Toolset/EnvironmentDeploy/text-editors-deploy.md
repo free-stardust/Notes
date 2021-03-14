@@ -197,6 +197,7 @@ module.exports = {
 ```
 - `Ctrl+,`打开设置，扩展中对该差距的显示主题和代码块主题进行选择，笔者通常选择的是`Monokai`；
 #### 1.2.6 LeetCode刷题环境配置
+>**说明**：leetcode刷题的话，不是很建议自己去思考最佳解法，当然自己算法功底厚或者时间多的话，自己想也未尝不可，但是对于我等普通人，刷题的话还是看题解，了解思路为主，多刷掌握套路，熟能生巧，这样效率比较高。
 - 安装插件`LeetCode`，该插件可以使用VSCode刷LeetCode，安装后侧边栏便会多一个LeetCode图标；
 - 安装插件后还需要进行NodeJS配置，否则插件无法正常运行，NodeJS安装见笔者GitHub的NodeJS配置，[点击查看](https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/NodeJSDeploy.md)；
 - NodeJS安装完毕后需要对插件进行设置；
