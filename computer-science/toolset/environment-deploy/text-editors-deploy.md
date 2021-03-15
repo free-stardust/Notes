@@ -29,7 +29,7 @@
 - Typora软件下载地址：[点击下载](https://www.typora.io/)；
 - Typora主题下载地址1，官网下载地址，下载很慢，[点击下载](https://theme.typora.io/)；
 - Typora主题下载地址2，下载快，但是只有部分在Media中，[点击下载](https://github.com/typora/typora-theme-gallery)；
-- Typora主题下载地址2，笔者下载的部分主题备份，[点击下载](https://github.com/free-stardust/Notes/blob/main/CSNotes/Toolset/EnvironmentDeploy/assets/SelectThemes.zip)；
+- Typora主题下载地址2，笔者下载的部分主题备份，[点击下载](https://gitee.com/free-stardust/Notes/blob/main/computer-science/toolset/environment-deploy/assets/SelectThemes.zip)；
 - Typera主题配置(笔者预览通常选择Mo-Dark，导出PDF选择Mo，另外以下字体及大小自己喜好修改即可)；
 ```css
 /* 
@@ -199,7 +199,7 @@ module.exports = {
 #### 1.2.6 LeetCode刷题环境配置
 >**说明**：leetcode刷题的话，不是很建议自己去思考最佳解法，当然自己算法功底厚或者时间多的话，自己想也未尝不可，但是对于我等普通人，刷题的话还是看题解，了解思路为主，多刷掌握套路，熟能生巧，这样效率比较高。
 - 安装插件`LeetCode`，该插件可以使用VSCode刷LeetCode，安装后侧边栏便会多一个LeetCode图标；
-- 安装插件后还需要进行NodeJS配置，否则插件无法正常运行，NodeJS安装见笔者GitHub的NodeJS配置，[点击查看](https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/NodeJSDeploy.md)；
+- 安装插件后还需要进行NodeJS配置，否则插件无法正常运行，NodeJS安装见笔者GitHub的NodeJS配置，[点击查看](https://gitee.com/free-stardust/Notes/blob/main/computer-science/toolset/environment-deploy/nodejs-deploy.md)；
 - NodeJS安装完毕后需要对插件进行设置；
   - `Ctrl+,`打开设置，扩展中选择LeetCode，设置`Node Path`为此类形式`C:\Enviornments\NodeJS\NodeFile\node.exe`(实际以自己安装路径为准)；
   - 设置`Endpoint`为`leetcode-cn`，这东西不设置的话默认是US的；
@@ -355,7 +355,7 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 - 下载的项目解压直接重命名放在Sublime Text3的根目录中`Data/Packages`目录下即可；
 - 上述操作过后Package Control可能依旧无法使用，原因是获取包安装清单文件channel_v3.json失败；
 - 如果网好的时候，可以直接从原地址下载该json文件，[源地址下载](https://packagecontrol.io/channel_v3.json)；
-- 笔者GitHub中也备份了channel_v3.json(源地址下载时间为2021/02/23)，[点击下载](https://github.com/free-stardust/Notes/blob/main/CSNotes/EnvironmentDeploy/assets/channel_v3.json)；
+- 笔者GitHub中也备份了channel_v3.json(源地址下载时间为2021/02/23)，[点击下载](https://gitee.com/free-stardust/Notes/blob/main/computer-science/toolset/environment-deploy/assets/channel_v3.json)；
 - 下载后将该文件放到Sublime Text3根目录的Packages文件夹中，毕竟是包清单，放在这里比较合理；
 - 修改`Package Control`用户设置，`Preference->package setting->package control->setting`；
 - 在`Package Control.subime-setting--User`文件中添加以下内容；
