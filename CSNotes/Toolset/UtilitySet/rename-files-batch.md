@@ -1,4 +1,4 @@
-# 实用工具类
+# 批量重命名文件
 ---
 >说明：本文档内容既有原创，也有借鉴，对于来自各位博主的内容，均在文中放置传送。
 ## 序言
@@ -314,20 +314,7 @@
     file_b.txt
     file_c.txt
     ```
-## 2 百度网盘
-### 2.1 百度网盘视频在线倍速播放
->**注**：本内容来自CSDN博主，[点击](https://blog.csdn.net/weijifen000/article/details/79889247)阅读原文。
-- 浏览器F12进入开发者模式选择`Console`输入以下代码即可实现加速；
-  - 百度网盘视频在线1.5倍速播放核心代码;
-    ```JS
-    videojs.getPlayers("video-player").html5player.tech_.setPlaybackRate(1.5)
-    ```
-  - 百度网盘视频在线任意倍率播放设置；
-    ```JS
-    videojs.getPlayers("video-player").html5player.tech_.setPlaybackRate(任意倍率)
-    ```
-## 3 Python小工具
-### 3.1 批量重命名文件
+## 2 Python批量重命名文件
 ```Python
 import os
 
