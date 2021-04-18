@@ -153,7 +153,7 @@
 ```
 - 显示效果
 
-![插入图片](./assets/markdown-grammer-01.gif "吞噬")
+![插入图片](./images/markdown-grammer-01.gif "吞噬")
 ### 1.6 表格
 - 语法格式
 ```text
