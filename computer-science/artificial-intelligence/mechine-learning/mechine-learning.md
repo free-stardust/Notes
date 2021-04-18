@@ -919,9 +919,9 @@
      10   12   19   21    3
      11   18   25    2    9
 
-  >>imagessc(A)    % 可视化矩阵A
-  >>imagessc(A), colorbar, colormap gray;    % 改变可视化颜色并添加颜色条带
-  >>imagessc(magic(15)), colorbar, colormap gray;
+  >>imagesc(A)    % 可视化矩阵A
+  >>imagesc(A), colorbar, colormap gray;    % 改变可视化颜色并添加颜色条带
+  >>imagesc(magic(15)), colorbar, colormap gray;
   >>print -dpng 'myMagic.png'
   >>a = 1, b = 2, c =3    % 使用逗号来实现连续调用函数
   a = 1
