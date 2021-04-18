@@ -19,7 +19,7 @@
 - ojdkbuild – https://github.com/ojdkbuild/ojdkbuild
 - RedHat – https://developers.redhat.com/products/openjdk/overview
 - SapMachine – https://sap.github.io/SapMachine
-![OpenJDK提供商对比](image/JDK_provider_comp.png)
+![OpenJDK提供商对比](images/JDK_provider_comp.png)
 #### 1.3 我应该使用哪种Java发行版？
 - 在Sun / Oracle时代,通常是Sun / Oracle基于OpenJDK源生成专有的下游JDK发行版.最近,Oracle决定只在附加商业支持的情况下进行自己的专有构建。他们慷慨地在https://jdk.java.net/网站上发布了OpenJDK版本;
 - 从JDK 11开始的是从单一供应商(Oracle)思维模式向思维模式的转变，在这种思维模式下，您选择一个提供商，在您喜欢的条件下为您提供产品分发：他们构建的平台，发布的频率/及时性，如何构建支持等等。如果您不信任任何现有供应商，您甚至可以自己构建OpenJDK;

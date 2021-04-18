@@ -487,11 +487,11 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 #### 2.2.7 右键菜单配置示例图
 - SublimeText3项下的配置
 
-![SublimeText3_01](./image/TextEditors_SublimeText3_01.png)
+![SublimeText3_01](./images/TextEditors_SublimeText3_01.png)
 
 - command项下的配置
 
-![SublimeText3_01](./image/TextEditors_SublimeText3_02.png)
+![SublimeText3_01](./images/TextEditors_SublimeText3_02.png)
 
 ## 3 Notepad++安装与配置
 ### 3.1 安装与配置
@@ -508,11 +508,11 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 #### 3.1.3 绿色版右键快捷菜单示例图
 - Notepad++ 项下的配置
 
-![NPP_01](./image/TextEditors_NPP_01.png)
+![NPP_01](./images/TextEditors_NPP_01.png)
 
 - command项下的配置
 
-![NPP_02](./image/TextEditors_NPP_02.png)
+![NPP_02](./images/TextEditors_NPP_02.png)
 
 ### 3.2 题外话
 - Nodepad++为免费版文本编辑器，但是界面古老，且作者是个反华分子；

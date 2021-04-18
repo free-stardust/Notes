@@ -340,7 +340,7 @@
      0   0   1   0
      0   0   0   1
   ```
-  ![hist(W)绘制的直方图(左) hist(W,50)绘制的直方图(右)](image/hist_w.png)
+  ![hist(W)绘制的直方图(左) hist(W,50)绘制的直方图(右)](images/hist_w.png)
 - **查看矩阵属性**
   ```matlab
   >>A = [1 2; 3 4; 5 6]
@@ -888,7 +888,7 @@
   >>legend('sin','cos')   % 添加图像图例
   >>title('my plot')    % 添加图像标题
   ```
-  ![同一个窗口绘制图像](image\myPlot.png)
+  ![同一个窗口绘制图像](images\myPlot.png)
 - **图像保存及多窗口绘制图像**
   ```matlab
   >>cd E:\Exc\MechineLearning\course_materials\Chapter06\ex1;
@@ -907,7 +907,7 @@
   >>print -dpng 'myPlot2.png'
   >>clf;    % 清除图像绘制区域
   ```
-  ![同一个窗口绘制图像](image\myPlot2.png)
+  ![同一个窗口绘制图像](images\myPlot2.png)
 - **可视化矩阵及颜色渲染**
   ```matlab
   >>A = magic(5)
@@ -919,16 +919,16 @@
      10   12   19   21    3
      11   18   25    2    9
 
-  >>imagesc(A)    % 可视化矩阵A
-  >>imagesc(A), colorbar, colormap gray;    % 改变可视化颜色并添加颜色条带
-  >>imagesc(magic(15)), colorbar, colormap gray;
+  >>imagessc(A)    % 可视化矩阵A
+  >>imagessc(A), colorbar, colormap gray;    % 改变可视化颜色并添加颜色条带
+  >>imagessc(magic(15)), colorbar, colormap gray;
   >>print -dpng 'myMagic.png'
   >>a = 1, b = 2, c =3    % 使用逗号来实现连续调用函数
   a = 1
   b = 2
   c = 3
   ```
-  ![矩阵可视化](image\myMagic15.png)
+  ![矩阵可视化](images\myMagic15.png)
 #### 6.5 控制语句：for、while、if语句
 - **for循环语句**
   ```matlab
@@ -1314,7 +1314,7 @@ $$
 - **具体做法**
   - 可以将多元分类转换为多个独立的二元分类进行；
   - 最后类别归属为多个独立二元分类中预测值最大的一个；
-![多元分类的一对多情况](image\logistic_one-vs-all.png)
+![多元分类的一对多情况](images\logistic_one-vs-all.png)
 - **实现步骤**
   - 为每个类别$i$训练一个Logistic回归分类器$h_{\theta}^{(i)}(x)$，以预测$y=i$时的概率；
   - 对于每一个新输入的$x$做预测，选定最大预测值$\underset{i}{\text{max}}\ h_\theta^{(i)}(x)$所属的类别$i$为$x$的归属;

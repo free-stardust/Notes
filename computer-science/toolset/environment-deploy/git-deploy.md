@@ -11,17 +11,17 @@
 - 开始安装，一路`next`到选择要安装的路径这一步，选择自定义路径安装；
 - **说明**：此处建议路径中最好不含空格和中文字符，虽然不是不可以，但是最好养成这个习惯，毕竟有些环境如果安装路径包含空格和中文字符在使用过程中可能会遇到未知错误；
 
-![选择安装路径](image/Git_01.png)
+![选择安装路径](images/Git_01.png)
 
 - 选择安装组件，这一步个人觉得默认就好；
   - 第一个复选框`Additional icons`这部分事再桌面创建图标，但是一般很少去桌面特意点击图标，所以其实没必要勾选；
   - 最后两个复选框分别是`控制台窗口的字体设置`和`检查更新`，这个没必要勾选；
 
-![选择安装组件](image/Git_02.png)
+![选择安装组件](images/Git_02.png)
 
 - 默认，`next`；
 
-![默认，下一步](image/Git_03.png)
+![默认，下一步](images/Git_03.png)
 
 - 选择Git默认使用的文本编辑器；
   - 这一步主要是为Git选择做一些配置时候所使用的默认的文本编辑器，一般很少用到，因为我们使用Git主要使用TortoiseGit的可视化界面进行；
@@ -31,14 +31,14 @@
     - 按`ESC`退出编辑状态；
     - 在编辑模式下，`:wq`为保存并退出，`:q!`不保存退出；
 
-![为Git选择默认的文本编译器](image/Git_04.png)
+![为Git选择默认的文本编译器](images/Git_04.png)
 
-![根据自己喜好在候选中选择合适的文本编辑器](image/Git_05.png)
+![根据自己喜好在候选中选择合适的文本编辑器](images/Git_05.png)
 
 - 下一步，进入分支名称设定界面；
   - 默认是选择的`New!`这个选项，既然是New，那就选择体验一下；
 
-![选择默认设置并设定合适的分支名称](image/Git_06.png)
+![选择默认设置并设定合适的分支名称](images/Git_06.png)
 
 - 下一步，进入调整Path环境变量界面；
   - **选择一**：这个选择是“仅从Git Bash”使用Git。最安全的选择，选择这个选项，Path环境变量不会被修改；
@@ -46,13 +46,13 @@
   - **选择三**：这个选择是“从命令提示符使用Git和可选的Unix工具”。这个选择含有警告，警告内容为：这将覆盖如”find”和“sort”的Windows工具，只有在了解其含义后才使用此选项，不建议不了解的初学者选择此选项；
   
 
-![调整Path环境变量](image/Git_07.png)
+![调整Path环境变量](images/Git_07.png)
 
 - 下一步，进入选择HTTP后端传输方式界面；
   - **选项一**：使用OpenSSL库。此选项是默认选项，也是我们常用的选项。
   - **选项二**：使用本地Window安全通道库。服务器证书将使用Windows证书存储验证，此选项还允许您使用公司的内部根CA证书；此选项个人建议还是理解这个选择意思的情况下再考虑是否选择，否则选择默认第一个选择就好了；
 
-![选择HTTP后端传输方式](image/Git_08.png)
+![选择HTTP后端传输方式](images/Git_08.png)
 
 - 下一步，进入配置行尾换行符的转换方式；
 - **说明**：本设置的意义是选择对待行结束换行符处理方式的选项，有时候在使用Git的情况下后有没有修改的文件要提交，可能是换行符的问题，初学的话默认就好；
@@ -61,13 +61,13 @@
     - Mac OS中的换行符：0x0D(CR)，后来的OS X在更换内核后与UNIX保持一致了；
     - DOX/Windows的换行符：0x0D0A(CRLF);
 
-![结尾换行符](image/Git_09.png)
+![结尾换行符](images/Git_09.png)
 
 - 下一步，进入配置终端模拟器以与Git Bash一起使用的界面；
   - **选项一**：使用MinTTY(MSYS2的默认终端)。Git Bash将使用MinTTY作为终端模拟器，该模拟器具有可调整大小的窗口，非矩形选择和Unicode字体。Windows控制台程序(例如交互式Python)必须通过“winpty”启动才能在MinTTY中运行；此选项为默认选择；
   - **选项二**：使用Windows的默认控制台窗口。Git将使用Windows的默认控制台窗口(“cmd.exe”)，该窗口可以与Win32控制台程序(如交互式Python或node.js)一起使用，但默认的回滚非常有限，需要配置为使用unicode字体以正确显示非ASCII字符，并且在Windows 10之前，其窗口不能自由调整大小，并且只允许矩形文本选择；
 
-![配置终端模拟器以与Git Bash一起使用的界面](image/Git_10.png)
+![配置终端模拟器以与Git Bash一起使用的界面](images/Git_10.png)
 
 - 下一步，进入选择git pull的默认行为；
 - **说明**：fast-forward是指当前分支合并到另一分支时，如果没有分歧解决，就会直接移动文件指针；rebase有种说法是重建时间线，具体含义请见[廖雪峰Git教程](https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648)；
@@ -75,15 +75,15 @@
   - **选择二**：Rebase(变基，也不知道这中文名词有啥含义)。将当前分支重新放置到获取的分支上。如果没有本地提交要变基，则相当于fast-forward；
   - **选择三**：Only ever fast-forward；fast-forward到抓取的分支，如果不可能则失败；
 
-![配置额外额外选项的界面](image/Git_11.png)
+![配置额外额外选项的界面](images/Git_11.png)
 
 - 下一步，选择一个凭据帮助方式，又标了`New!`，还是默认选项，那就这个了；
 
-![凭据帮助方式](image/Git_12.png)
+![凭据帮助方式](images/Git_12.png)
 
 - 下一步，进入额外的配置选项，这个设置虽然有`New!`但是说存在已知bug，默认也没勾选，所以就先不勾选了；
 
-![额外配置选项，不勾选](image/Git_13.png)
+![额外配置选项，不勾选](images/Git_13.png)
 
 ### 2 Git配置
 #### 2.1 启动Git Bash
@@ -95,7 +95,7 @@ git config --global user.name "xxx"  # 这里xxx输入自己的用户名
 git config --global user.email "xxx"  # 这里xxx输入自己的电子箱
 ```
 
-![配置用户名和邮箱](image/Git_14.png)
+![配置用户名和邮箱](images/Git_14.png)
 
 #### 2.3 生成公钥和私钥
 - 生产的公钥和私钥一般放在用户目录的.ssh目录下；
@@ -110,7 +110,7 @@ ssh-keygen -t rsa -C "xxxxxxx@xx.com" -f "github_rsa"  # 生成github用的私�
 ssh-keygen -t rsa -C "xxxxxxx@xx.com" -f "gitee_rsa"  # 生码云用的私钥公钥
 ```
 
-![生成公钥和私钥](image/Git_16.png)
+![生成公钥和私钥](images/Git_16.png)
 
 #### 2.4 拷贝公钥
 - **方式一**：直接进入`c:\user\xxx\.shh`目录，使用Notepad++编译器打开github_rsa.pub或者gitee_rsa.pub的两个文件进行复制；
@@ -138,9 +138,9 @@ IdentityFile ~/.ssh/gitee_rsa
 - 使用`ssh -T git@github.com`指令和`ssh -T git@gitee.com`指令查看是否添加配置成功；
 - 看到`Hi xxx`则表明配置生效；
 
-![查看结果](image/Git_19.png)
+![查看结果](images/Git_19.png)
 
-- 自此，便可进行自己本地和GitHub或者码云项目的版本控制，拉去和提交，如果要实现同步推送编辑到GitHub和码云，则可按如下内容修改同步配置文件；
+- 自此，便可进行自己本地和GitHub或者码云项目的版本控制，拉取和提交，如果要实现同步推送编辑到GitHub和码云，则可按如下内容修改同步配置文件；
   - **说明**：该配置文件`config`在`.git`隐藏文件夹中，需要开启显示隐藏文件才能看到；
 ```text
 [core]
@@ -168,7 +168,7 @@ IdentityFile ~/.ssh/gitee_rsa
 #### 2.7 配置过程问题解决方案
 - 在配置Git的config的时候如果直接复制网页的配置信息，可能会遇到以下问题；
 
-![Git配置未生效错误示例](image/Git_18.png)
+![Git配置未生效错误示例](images/Git_18.png)
 
 - 问题原因：由于是复制的网页内容，可能混入了无关字符`\302\240`这种字符；
 - 解决方案：重新进入Git配置的默认文本编辑器，手动敲入各个字符；
@@ -176,32 +176,32 @@ IdentityFile ~/.ssh/gitee_rsa
 - 登录[GitHub](https://github.com/);
 - 点击头像，选择`Settings`；
 
-![进入GitHub设置页面](image/Git_15.png)
+![进入GitHub设置页面](images/Git_15.png)
 
 - 选择`SSH and GPG keys`，点击`New SSH key`进入SSH key添加页面；
 
-![添加SSH公钥](image/Git_17.png)
+![添加SSH公钥](images/Git_17.png)
 
 #### 2.9 码云配置公钥
 - 登录[码云](https://gitee.com/);
 - 点击头像，选择`设置`；
 
-![进入码云设置页面](image/Git_23.png)
+![进入码云设置页面](images/Git_23.png)
 
 - 选择`SSH`公钥，输入公钥标题和公钥，点击确定添加SSH key;
 
-![添加SSH公钥](image/Git_24.png)
+![添加SSH公钥](images/Git_24.png)
 
 #### 2.10 IDEA配置Git
 - 点击`file`，选择`Settings`进入设置界面，按下图所示配置；
 
-![IDEA配置Git](image/Git_20.png)
+![IDEA配置Git](images/Git_20.png)
 
 - 拉取项目，按下图配置；
 
-![进入拉取项目页面](image/Git_21.png)
+![进入拉取项目页面](images/Git_21.png)
 
-![拉取项目](image/Git_22.png)
+![拉取项目](images/Git_22.png)
 
 ## TortoiseGit安装与配置
 ### 3 TortoiseGit下载安装
@@ -212,23 +212,23 @@ IdentityFile ~/.ssh/gitee_rsa
 - 先安装TortoiseGit，之后再安装汉化包；
 - 选择SSH客户端，默认选择，下一步；
 
-![选择SSH客户端](image/TortoiseGit_01.png)
+![选择SSH客户端](images/TortoiseGit_01.png)
 
 - 选择安装路径，自定义选择后下一步；
 
-![自定义安装路径](image/TortoiseGit_02.png)
+![自定义安装路径](images/TortoiseGit_02.png)
 
 - 配置git.exe，这一步如果之前安装好git，配置好path变量，则会自动索引出来，否则去找安装git的路径下照git.exe
 
-![配置git.exe](image/TortoiseGit_03.png)
+![配置git.exe](images/TortoiseGit_03.png)
 
 - 配置用户信息，如果Git安装后配置好用户名和邮箱，此处也会自动索引；
 
-![配置用户信息](image/TortoiseGit_04.png)
+![配置用户信息](images/TortoiseGit_04.png)
 
 - 最后一步默认，点击完成；
 
-![默认设置，点击完成](image/TortoiseGit_05.png)
+![默认设置，点击完成](images/TortoiseGit_05.png)
 
 - 安装汉化包；
 #### 3.3 过程问题解决方案
@@ -239,7 +239,7 @@ IdentityFile ~/.ssh/gitee_rsa
 - 开始菜单选择TortoiseGit目录下的`PuTTYgen`;
 - 点击`PuTTY Key Generator`窗口的`Generate`，之后在进度条上滑动鼠标生成公钥并按需设定私钥密码；
 
-![生成公钥私钥](image/TortoiseGit_06.png)
+![生成公钥私钥](images/TortoiseGit_06.png)
 
 - 点击`Save public key`和`Save private key`分别保存公钥和私钥，私钥是ppk文件；
 #### 4.2 Github和码云配置公钥
@@ -252,18 +252,18 @@ IdentityFile ~/.ssh/gitee_rsa
   - 勾选`加载Putty密钥`并选择对应平台的私钥文件；
   
 
-![克隆项目](image/TortoiseGit_07.png)
+![克隆项目](images/TortoiseGit_07.png)
 
 - 提交项目；
   - 由于git项目提交时3段式的，中间有个暂存器，所以如果提交修改的项目，需要先commit，然后再push，不过如果实际进行项目开发，一般的习惯是先pull，再commit，最后push;
   
 
-![提交](image/TortoiseGit_08.png)
+![提交](images/TortoiseGit_08.png)
 
 
-![提交成功](image/TortoiseGit_09.png)
+![提交成功](images/TortoiseGit_09.png)
 
-![推送成功](image/TortoiseGit_10.png)
+![推送成功](images/TortoiseGit_10.png)
 
 ### 5 实现GitHub和码云的同时推送
 #### 5.1 在GitHub和码云建立同样的仓库
@@ -295,6 +295,6 @@ IdentityFile ~/.ssh/gitee_rsa
 #### 5.3 同时推送项目修改内容到两个仓库
 - 在项目文件夹右键点击`Git 同步`；
 
-![TortoiseGit同步](image/TortoiseGit_11.png)
+![TortoiseGit同步](images/TortoiseGit_11.png)
 
 - 分别点击提交和推送即可将内容同时推送到GitHub和码云；
