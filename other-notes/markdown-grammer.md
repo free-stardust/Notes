@@ -1,4 +1,4 @@
-# Markdown 基本语法 + LaTex 公式语法
+# Markdown 基本语法 + LaTex 公式
 ---
 [TOC]
 ## 序
@@ -278,7 +278,10 @@ GO|go, golang
 ÷|除号|&+divide;
 ²|平方|&+sup2;
 ³|立方|&+sup3;
+## 1.11 插图目录
+- 在文档开头插入独立一行插入`[TOC]`即可；
 ## 2 LaTex 公式
+>**说明**：LaTex 公式符号复杂多样，但没必要刻意记忆，可以在使用的过程中慢慢熟练，自然能记住，详细可参考 [LaTex Mathematical Symbols](https://www.caam.rice.edu/~heinken/latex/symbols.pdf)。
 ### 2.1 行内公式
 - 语法示例
 ```text
